@@ -1,4 +1,4 @@
-package cd.babitech.medrad.Auth
+package cd.babitech.medrad.Auth.patient
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
