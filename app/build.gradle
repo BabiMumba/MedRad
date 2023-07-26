@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    //kotlin-kapt
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'cd.babitech.medrad'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "cd.babitech.medrad"
+        minSdk 22
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
+    implementation 'com.github.dhaval2404:imagepicker:1.7.1'
+    implementation 'com.karumi:dexter:6.2.3'
+    implementation 'com.android.volley:volley:1.2.1'
+    //taille
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    //image viewer and zoom
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'                //Circle image
+    implementation 'com.github.bumptech.glide:glide:4.14.2'            //Glide image
+    kapt 'com.github.bumptech.glide:compiler:4.14.2'    			   //Glide compiler
+    implementation 'com.balysv:material-ripple:1.0.2'                  //Ripple effect
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'           //Image Crop
+    implementation 'com.github.smarteist:autoimageslider:1.3.2'        //Slider Show
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
+
+
+}
