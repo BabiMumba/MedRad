@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "730780092568",
+    "project_id": "medrad-drc",
+    "storage_bucket": "medrad-drc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730780092568:android:3b5bf37597efece21728ed",
+        "android_client_info": {
+          "package_name": "cd.babitech.medrad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730780092568-sri046bokt57autf8vjm7m3k3dmri886.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL3zPqIwOgbfIHam0Ke55CnUOTwucBUQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730780092568-sri046bokt57autf8vjm7m3k3dmri886.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
