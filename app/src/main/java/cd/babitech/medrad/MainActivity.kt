@@ -30,8 +30,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<FloatingActionButton>(R.id.floating_button).setOnClickListener {
             startActivity(Intent(this, AddApointActivity::class.java))
 
-
-
         }
 
         loadFragment(HomeFragment())
