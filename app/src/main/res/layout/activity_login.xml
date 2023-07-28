@@ -5,18 +5,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/doct_f"
+    android:background="@color/backgroud"
     tools:context=".Auth.patient.LoginActivity">
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#85212122"
+    <ImageView
+        android:id="@+id/imageView_login"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:src="@drawable/register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_50sdp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se connecter"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_20ssp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@id/imageView_login"
+        android:id="@+id/txt_login"
         />
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/txt_login"
         android:orientation="vertical"
         android:layout_margin="20dp"
         >
@@ -42,7 +56,7 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Votre Mot de passe"
-            app:passwordToggleEnabled="true"
+            app:passwordToggleEnabled="false"
             >
             <EditText
                 android:imeOptions="actionNext"
@@ -56,6 +70,15 @@
 
 
     </LinearLayout>
+    <ProgressBar
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_below="@+id/linear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        />
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,7 +90,7 @@
         android:layout_centerHorizontal="true"
         android:text="Se connecter"
         android:textAllCaps="false"
-        android:textColor="@color/primary_text"
+        android:textColor="@color/white"
         android:textSize="@dimen/_14ssp"
         android:id="@+id/login_btn"
         />
@@ -83,6 +106,7 @@
         android:id="@+id/forgot_password"
         />
     <TextView
+        android:padding="@dimen/_10sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/forgot_password"

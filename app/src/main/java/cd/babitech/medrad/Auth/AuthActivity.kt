@@ -1,7 +1,9 @@
 package cd.babitech.medrad.Auth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import cd.babitech.medrad.Auth.patient.LoginActivity
 import cd.babitech.medrad.R
 import cd.babitech.medrad.databinding.ActivityAuthBinding
 
@@ -11,6 +13,11 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnPatient.setOnClickListener {
+            startActivity(Intent(this,LoginActivity::class.java))
+        }
+
 
 
     }

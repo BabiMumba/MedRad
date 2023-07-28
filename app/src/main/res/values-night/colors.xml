@@ -2,8 +2,8 @@
 <resources>
 
     <color name="white">#FFFFFFFF</color>
-    <color name="Accent">#0037FF</color>
-    <color name="primary">#001FFF</color>
+    <color name="Accent">#69FFE0</color>
+    <color name="primary">#00FFEA</color>
     <color name="backgroud">#252C4B</color>
     <color name="card_background">#27325F</color>
     <color name="primary_text">#FFFFFF</color>

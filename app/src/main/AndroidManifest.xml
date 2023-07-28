@@ -25,13 +25,13 @@
             android:name=".Auth.patient.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Auth.AuthActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.SplashActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Auth.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
