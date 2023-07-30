@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_margin="@dimen/_5sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_130sdp"
+    app:cardElevation="@dimen/_5sdp"
+    app:cardCornerRadius="@dimen/_5sdp"
+    android:layout_height="@dimen/_160sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:id="@+id/image_doctor"
+            />
+        <TextView
+            android:id="@+id/name_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dr Babi mumba"
+            android:layout_below="@id/image_doctor"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/_9ssp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DERMATOLOGUE"
+            android:textColor="@color/secondary_text"
+            android:textStyle="normal"
+            android:textSize="@dimen/_6ssp"
+            android:layout_marginTop="@dimen/_8ssp"
+            android:id="@+id/fonction"
+            android:layout_below="@id/name_doctor"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fonction"
+            android:text="Contacter"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/primary"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/arroundir_txt"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

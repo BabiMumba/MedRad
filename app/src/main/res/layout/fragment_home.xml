@@ -47,7 +47,7 @@
                         android:id="@+id/nomprofil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nom"
+                        android:text="Babi Mumba"
                         android:textColor="@color/primary_text"
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="bold"
@@ -95,10 +95,12 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:scrollbars="none">
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
+
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,33 +137,17 @@
                         android:orientation="horizontal">
                         <include
                             layout="@layout/specialitse_item"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            />
                         <include
-                            android:layout_marginStart="@dimen/_10sdp"
                             layout="@layout/specialitse_item"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            />
                         <include
-                            android:layout_marginStart="@dimen/_10sdp"
                             layout="@layout/specialitse_item"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            />
                         <include
-                            android:layout_marginStart="@dimen/_10sdp"
                             layout="@layout/specialitse_item"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <include
-                            android:layout_marginStart="@dimen/_10sdp"
-                            layout="@layout/specialitse_item"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <include
-                            android:layout_marginStart="@dimen/_10sdp"
-                            layout="@layout/specialitse_item"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            />
+
 
 
 
@@ -171,9 +157,65 @@
                 </HorizontalScrollView>
 
             </LinearLayout>
+            <RelativeLayout
+
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Top Docteur"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    />
+                <TextView
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Voir plus"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    />
+
+            </RelativeLayout>
+            <HorizontalScrollView
+                android:layout_marginTop="@dimen/_10ssp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <include
+                        layout="@layout/doctor_item"
+                        />
+                    <include
+                        layout="@layout/doctor_item"
+                        />
+                    <include
+                        layout="@layout/doctor_item"
+                        />
+                    <include
+                        layout="@layout/doctor_item"
+                        />
+                    <include
+                        layout="@layout/doctor_item"
+                        />
+                    <include
+                        layout="@layout/doctor_item"
+                        />
+                </LinearLayout>
+            </HorizontalScrollView>
 
 
-        </RelativeLayout>
+
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 
