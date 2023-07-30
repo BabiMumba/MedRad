@@ -5,16 +5,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroud"
     tools:context=".Activity.AddApointActivity">
-    <TextView
-        android:layout_width="wrap_content"
+
+    <androidx.cardview.widget.CardView
+        android:padding="@dimen/_10sdp"
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="page Home"
-        android:textAllCaps="false"
-        android:textColor="@color/primary_text"
-        android:textStyle="bold"
-        android:textSize="@dimen/_25sdp"
-        android:layout_centerInParent="true"
-        />
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_20sdp"
+        >
+        <LinearLayout
+
+            android:background="@color/card_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@color/card_background"
+                android:id="@+id/relativeprofil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageprofil"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:src="@drawable/black"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    />
+                <LinearLayout
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/imageprofil"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/nomprofil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nom"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:id="@+id/prenomprofil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Comment vas tu ?"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@color/card_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <EditText
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Trouver un docteur ou un hopital"
+                    android:background="@drawable/arroundir_edit"
+                    android:padding="@dimen/_8sdp"
+                    android:textColorHint="@color/secondary_text"
+                    android:drawableStart="@drawable/baseline_search_24"
+                    android:drawablePadding="@dimen/_10sdp"
+                    />
+
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:text="Catégories"
+                    android:layout_marginStart="@dimen/_10sdp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="normal"
+                    android:text="Trouver un specialiste rapidement"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    />
+                <HorizontalScrollView
+                    android:scrollbars="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp">
+                    <LinearLayout
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:background="@color/card_background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <include
+                            layout="@layout/specialitse_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <include
+                            android:layout_marginStart="@dimen/_10sdp"
+                            layout="@layout/specialitse_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <include
+                            android:layout_marginStart="@dimen/_10sdp"
+                            layout="@layout/specialitse_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <include
+                            android:layout_marginStart="@dimen/_10sdp"
+                            layout="@layout/specialitse_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <include
+                            android:layout_marginStart="@dimen/_10sdp"
+                            layout="@layout/specialitse_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <include
+                            android:layout_marginStart="@dimen/_10sdp"
+                            layout="@layout/specialitse_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
 
 </RelativeLayout>
