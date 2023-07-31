@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_5sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <LinearLayout
+        android:padding="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:padding="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <androidx.cardview.widget.CardView
+                android:id="@+id/my_cardproofil"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:elevation="@dimen/_5sdp"
+                app:cardElevation="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+
+                >
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/black"
+                    />
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_below="@id/rating_pd"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_toEndOf="@id/my_cardproofil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/name_doctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:text="Dr. Babi Mumba"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:text="master en doctora a l'universiter de lubumbashi"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:text="Langue:Francais,Englais,Swahili"
+                    />
+
+            </LinearLayout>
+            <RatingBar
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/rating_pd"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:progressTint="@color/primary"
+                android:rating="4"
+                android:secondaryProgressTint="@color/black"
+                />
+
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 4 ans d'exp"
+            android:textStyle="normal"
+            android:textSize="@dimen/_10sdp"
+            android:background="@drawable/arroundir_txt"
+            android:backgroundTint="#3B68DD"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:padding="@dimen/_2sdp"
+            android:textColor="@color/white"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+            <com.google.android.material.button.MaterialButton
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cornerRadius="@dimen/_10sdp"
+                android:text="Plus d'info"
+                android:textAllCaps="false"
+                android:textColor="@color/primary"
+                android:backgroundTint="@color/secondary_text"
+                android:layout_weight="1"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Contacter"
+                app:cornerRadius="@dimen/_10sdp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

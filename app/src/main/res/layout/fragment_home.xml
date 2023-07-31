@@ -99,6 +99,23 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_margin="@dimen/_5sdp"
+                android:id="@+id/material"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:elevation="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_2sdp"
+                >
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="2000"
+                    app:iss_period="5000"
+                    />
+            </com.google.android.material.card.MaterialCardView>
             <LinearLayout
 
                 android:layout_marginTop="@dimen/_10sdp"
@@ -135,6 +152,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <include
                             layout="@layout/specialitse_item"
                             />
@@ -156,7 +174,24 @@
 
                 </HorizontalScrollView>
 
+
             </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:elevation="@dimen/_5sdp"
+                android:layout_margin="@dimen/_10sdp"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/fond"
+                    android:scaleType="fitXY"
+                    />
+            </androidx.cardview.widget.CardView>
+
+
             <RelativeLayout
 
                 android:layout_marginStart="@dimen/_10sdp"
@@ -184,32 +219,95 @@
 
             </RelativeLayout>
             <HorizontalScrollView
+            android:layout_marginTop="@dimen/_10ssp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <include
+                    layout="@layout/doctor_item"
+                    />
+                <include
+                    layout="@layout/doctor_item"
+                    />
+                <include
+                    layout="@layout/doctor_item"
+                    />
+                <include
+                    layout="@layout/doctor_item"
+                    />
+                <include
+                    layout="@layout/doctor_item"
+                    />
+                <include
+                    layout="@layout/doctor_item"
+                    />
+            </LinearLayout>
+        </HorizontalScrollView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:elevation="@dimen/_5sdp"
+                android:layout_margin="@dimen/_10sdp"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/fond"
+                    android:scaleType="fitXY"
+                    />
+            </androidx.cardview.widget.CardView>
+            <RelativeLayout
+
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contacter un docteur"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    />
+                <TextView
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Voir plus"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    />
+
+            </RelativeLayout>
+            <HorizontalScrollView
                 android:layout_marginTop="@dimen/_10ssp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:scrollbars="none"
                 >
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <include
-                        layout="@layout/doctor_item"
+                        layout="@layout/doctor_consul"
                         />
                     <include
-                        layout="@layout/doctor_item"
+                        layout="@layout/doctor_consul"
                         />
                     <include
-                        layout="@layout/doctor_item"
+                        layout="@layout/doctor_consul"
                         />
-                    <include
-                        layout="@layout/doctor_item"
-                        />
-                    <include
-                        layout="@layout/doctor_item"
-                        />
-                    <include
-                        layout="@layout/doctor_item"
-                        />
+
                 </LinearLayout>
             </HorizontalScrollView>
 
