@@ -31,15 +31,14 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.SplashActivity"
+            android:name=".Auth.AuthActivity"
             android:exported="false" />
         <activity
             android:screenOrientation="portrait"
-            android:name=".Auth.AuthActivity"
+            android:name=".Activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
