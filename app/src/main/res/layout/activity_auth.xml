@@ -7,10 +7,56 @@
     android:background="@color/backgroud"
     android:layout_height="match_parent"
     tools:context=".Auth.AuthActivity">
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_doctor"
+    <RelativeLayout
+        android:id="@+id/image"
+        android:backgroundTint="@color/primary"
+        android:background="@drawable/arrondi_bt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_300sdp"
+            android:src="@drawable/do1"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MedRad"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            android:textSize="@dimen/_25ssp"
+            />
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slogan_1"
+            android:fontFamily="@font/metropolis_m"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="normal"
+
+            />
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_patient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
@@ -18,26 +64,9 @@
         android:layout_marginBottom="@dimen/_5sdp"
         android:backgroundTint="@color/primary"
         android:padding="@dimen/_10sdp"
-        android:text="Doctor"
+        android:text="Commencer"
         android:textAllCaps="false"
-        android:textColor="@color/primary_text"
-        android:textStyle="bold"
-        app:cornerRadius="@dimen/_10sdp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_patient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/btn_doctor"
-        android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:backgroundTint="@color/primary"
-        android:padding="@dimen/_10sdp"
-        android:text="Patient"
-        android:textAllCaps="false"
-        android:textColor="@color/primary_text"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:cornerRadius="@dimen/_10sdp" />
 
