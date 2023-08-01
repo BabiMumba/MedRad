@@ -33,12 +33,13 @@
                     android:src="@drawable/black"
                     android:id="@+id/profil_doctor"
                     />
-                <com.google.android.material.button.MaterialButton
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_call_24"
                     android:layout_alignParentEnd="true"
-                    android:text="Appeler"
-                    android:textAllCaps="false"
+                    app:tint="@color/vert"
+                    android:backgroundTint="@color/primary"
                     />
                 <LinearLayout
                     android:layout_toEndOf="@id/profil_doctor"
