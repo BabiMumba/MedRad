@@ -2,6 +2,7 @@ package cd.babitech.medrad.Auth.patient
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.widget.Toast
 import cd.babitech.medrad.MainActivity
@@ -19,6 +20,8 @@ import java.util.Date
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
+    private val db = FirebaseFirestore.getInstance()
+    private val sharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityRegisterBinding.inflate(layoutInflater)
@@ -39,7 +42,6 @@ class RegisterActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Void.loading(false,binding.progressBar,binding.loginBtn)
                     // Connecté avec succès
                     saveUserData(email,binding.name.text.toString(),password,binding.numberPhone.text.toString())
 
@@ -58,7 +60,7 @@ class RegisterActivity : AppCompatActivity() {
         val sdf = SimpleDateFormat("dd/M/yyyy HH:M")
         val date_dins = sdf.format(Date()).toString()
         val firestore = FirebaseFirestore.getInstance()
-        val userDocument = firestore.collection("users").document(DATA.id_user)
+        val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
 
         val userData = hashMapOf(
             "nom" to firstName,
@@ -72,13 +74,16 @@ class RegisterActivity : AppCompatActivity() {
         userDocument.set(userData)
             .addOnSuccessListener {
                 // Enregistrement réussi
+                Void.loading(false,binding.progressBar,binding.loginBtn)
                 Void.toas(this,"Compte creer")
                 Void.Intent_page(this, MainActivity::class.java)
 
             }
             .addOnFailureListener {
+                Void.loading(false,binding.progressBar,binding.loginBtn)
                 // Erreur lors de l'enregistrement
                 Log.d("FAILED","Erreur de connexion : ${it.message}")
             }
     }
+
 }

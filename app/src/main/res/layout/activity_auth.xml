@@ -17,7 +17,7 @@
         >
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_300sdp"
+            android:layout_height="@dimen/_350sdp"
             android:src="@drawable/do1"
             />
     </RelativeLayout>

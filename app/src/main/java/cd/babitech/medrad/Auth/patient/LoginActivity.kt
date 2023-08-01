@@ -6,14 +6,18 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import cd.babitech.medrad.MainActivity
+import cd.babitech.medrad.Model.User
 import cd.babitech.medrad.R
+import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
 import cd.babitech.medrad.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
+    private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginBinding.inflate(layoutInflater)
@@ -24,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             loginUser(binding.email.text.toString(),binding.password.text.toString())
         }
+
         binding.register.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
         }
@@ -34,13 +39,8 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Void.loading(false,binding.progressBar,binding.loginBtn)
                     // Connecté avec succès
-                    Void.toas(this,"connexion reussi")
-                    Void.Intent_page(this,MainActivity::class.java)
-
-
-
+                    getData()
 
 
                 } else {
@@ -54,5 +54,35 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
             }
+    }
+
+    private fun getData() {
+        val userId = DATA.id_user
+        db.collection(DATA.user)
+            .document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    val user = document.toObject(User::class.java)
+                    saveUserDataLocally(user)
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Gérer les erreurs de récupération des données depuis Firebase Firestore
+                Void.toas(this,"${exception.message}")
+
+            }
+    }
+
+    private fun saveUserDataLocally(user: User?) {
+        val sharedPreferences = getSharedPreferences(DATA.PREF_NAME, MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        if (user != null) {
+            val editor = sharedPreferences.edit()
+            editor.putString("nom", user.nom)
+            editor.putString("post_nom", user.postNom)
+            editor.putString("prenom", user.prenom)
+            editor.apply()
+        }
     }
 }
