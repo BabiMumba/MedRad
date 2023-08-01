@@ -22,11 +22,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         auth = FirebaseAuth.getInstance()
-
         binding.loginBtn.setOnClickListener {
-            loginUser(binding.email.text.toString(),binding.password.text.toString())
+            if (ChampValide()){
+                loginUser(binding.email.text.toString(),binding.password.text.toString())
+            }
         }
 
         binding.register.setOnClickListener {
@@ -90,13 +90,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun  ChampValide():Boolean {
-        return if (binding.password.text.length < 6 || binding.password.text.isEmpty()) {
-            Void.toas(this, "Verifiez votre nom caractere min 6")
-            false
-        } else if (binding.email.text.toString().isEmpty()) {
+        return if (binding.email.text.toString().isEmpty()) {
             Void.toas(this, "Votre mail")
             false
-        }  else {
+        }else if (binding.password.text.length < 6 || binding.password.text.isEmpty()) {
+            Void.toas(this, "Verifiez votre mot de passe caractere min 6")
+            false
+        } else {
             true
         }
     }

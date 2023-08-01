@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DetailDoctorActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_top_bar"
+        />
+    <androidx.core.widget.NestedScrollView
+        android:layout_above="@id/rendez_btn"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:padding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:src="@drawable/black"
+                    android:id="@+id/profil_doctor"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Appeler"
+                    android:textAllCaps="false"
+                    />
+                <LinearLayout
+                    android:layout_toEndOf="@id/profil_doctor"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_check_circle_24"
+                            app:tint="@color/primary"
+                            />
+                        <TextView
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dr Babi Mumba"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/_13ssp"
+                            android:textStyle="bold"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="20sp"
+                            android:src="@drawable/boutils"
+                            app:tint="@color/secondary_text"
+                            />
+                        <TextView
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hopital:Gecamine sud"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/_13ssp"
+                            android:textStyle="normal"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="20sp"
+                            android:src="@drawable/baseline_language_24"
+                            app:tint="@color/secondary_text"
+                            />
+                        <TextView
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Langue: Francais,Swahili,Englais"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="normal"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="20sp"
+                            android:src="@drawable/exeperiance"
+                            app:tint="@color/secondary_text"
+                            />
+                        <TextView
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Experiance: 1 ans"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="normal"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="20sp"
+                            android:src="@drawable/baseline_location_on_24"
+                            app:tint="@color/secondary_text"
+                            />
+                        <TextView
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lubumbashi"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="normal"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            <View
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/secondary_text"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Autres Inforamtions"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/primary_text"
+                    />
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="20sp"
+                        android:src="@drawable/baseline_looks_one_24"
+                        app:tint="@color/primary"
+                        />
+                    <TextView
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Category: Dentiste"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="normal"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="20sp"
+                        android:src="@drawable/baseline_school_24"
+                        app:tint="@color/primary"
+                        />
+                    <TextView
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Degree: License en medecin interne"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="normal"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apropos"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/primary_text"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="je suis specialiste en chirirgie interne de la place\nje suis specialiste en chirirgie interne de la place\nje suis specialiste en chirirgie interne de la place"
+                    android:textStyle="normal"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/primary_text"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Localisation"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/primary_text"
+                    />
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/maps_img"
+                        android:scaleType="fitCenter"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+                
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Horaire"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/primary_text"
+                    />
+                <TextView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lundi: 8h00' a 14h00'"
+                    android:textStyle="normal"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/secondary_text"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jeudi: 10h00' a 18h00'"
+                    android:textStyle="normal"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/secondary_text"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="samedi: 12h00' a 20h00'"
+                    android:textStyle="normal"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/secondary_text"
+                    />
+
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:layout_alignParentBottom="true"
+        android:id="@+id/rendez_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prendre Rendez-vous"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/_10sdp"
+        />
+
+
+</RelativeLayout>

@@ -229,6 +229,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <include
+                    android:id="@+id/profil_1"
                     layout="@layout/doctor_item"
                     />
                 <include
