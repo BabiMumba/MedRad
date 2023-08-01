@@ -6,6 +6,7 @@ import android.preference.PreferenceManager
 import android.util.Log
 import android.widget.Toast
 import cd.babitech.medrad.MainActivity
+import cd.babitech.medrad.Model.User
 import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
@@ -20,8 +21,6 @@ import java.util.Date
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
-    private val db = FirebaseFirestore.getInstance()
-    private val sharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityRegisterBinding.inflate(layoutInflater)
@@ -61,21 +60,24 @@ class RegisterActivity : AppCompatActivity() {
         val date_dins = sdf.format(Date()).toString()
         val firestore = FirebaseFirestore.getInstance()
         val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
-
-        val userData = hashMapOf(
+        val user = User(firstName,email,number,password,Calendar.getInstance().time.toString())
+        /*val userData = hashMapOf(
             "nom" to firstName,
             "mail" to email,
             "mot de passe" to password,
             "numero" to number,
             "date" to date_dins,
             "heure" to Calendar.getInstance().time
-        )
+        )*/
 
-        userDocument.set(userData)
+        userDocument.set(user)
+
             .addOnSuccessListener {
+                val user = user
                 // Enregistrement réussi
                 Void.loading(false,binding.progressBar,binding.loginBtn)
                 Void.toas(this,"Compte creer")
+                saveUserDataLocally(user)
                 Void.Intent_page(this, MainActivity::class.java)
 
             }
@@ -84,6 +86,43 @@ class RegisterActivity : AppCompatActivity() {
                 // Erreur lors de l'enregistrement
                 Log.d("FAILED","Erreur de connexion : ${it.message}")
             }
+    }
+    fun saveUserDataLocally(user: User?) {
+        val sharedPreferences = getSharedPreferences(DATA.PREF_NAME, MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        if (user != null) {
+            val editor = sharedPreferences.edit()
+            editor.putString("nom", user.nom)
+            editor.putString("mail", user.mail)
+            editor.putString("numero", user.numero)
+            editor.apply()
+            Void.loading(false,binding.progressBar,binding.loginBtn)
+            Void.Intent_page(this,MainActivity::class.java)
+
+        }
+    }
+    private fun  ChampValide():Boolean {
+        return if (binding.name.text.length < 3 || binding.name.text.isEmpty() || binding.name.text.length > 15) {
+            Void.toas(this, "Verifiez votre nom caractere min 3 max 15")
+            false
+        } else if (binding.email.text.toString().isEmpty()) {
+            Void.toas(this, "Votre mail")
+            false
+        }  else if (binding.numberPhone.text.toString().isEmpty()) {
+            Void.toas(this, "votre numero")
+            false
+        }else if (binding.password.text.length < 6 || binding.name.text.isEmpty()) {
+            Void.toas(this, "mot de passe incomplet caractere min 6")
+            false
+        }else if (binding.passwordConfirm.text.isEmpty()) {
+            Void.toas(this, "confirmer votre mot de passe")
+            false
+        } else if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
+            Void.toas(this, "mot de passe different")
+            false
+        }else {
+            true
+        }
     }
 
 }

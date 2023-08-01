@@ -74,15 +74,18 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun saveUserDataLocally(user: User?) {
+    fun saveUserDataLocally(user: User?) {
         val sharedPreferences = getSharedPreferences(DATA.PREF_NAME, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         if (user != null) {
             val editor = sharedPreferences.edit()
             editor.putString("nom", user.nom)
-            editor.putString("post_nom", user.postNom)
-            editor.putString("prenom", user.prenom)
+            editor.putString("mail", user.mail)
+            editor.putString("numero", user.numero)
             editor.apply()
+            Void.loading(false,binding.progressBar,binding.loginBtn)
+            Void.Intent_page(this,MainActivity::class.java)
+
         }
     }
 }
