@@ -88,4 +88,16 @@ class LoginActivity : AppCompatActivity() {
 
         }
     }
+
+    private fun  ChampValide():Boolean {
+        return if (binding.password.text.length < 6 || binding.password.text.isEmpty()) {
+            Void.toas(this, "Verifiez votre nom caractere min 6")
+            false
+        } else if (binding.email.text.toString().isEmpty()) {
+            Void.toas(this, "Votre mail")
+            false
+        }  else {
+            true
+        }
+    }
 }

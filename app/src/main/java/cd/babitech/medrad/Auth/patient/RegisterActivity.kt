@@ -29,7 +29,10 @@ class RegisterActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         binding.loginBtn.setOnClickListener {
-            loginUser(binding.email.text.toString(),binding.password.text.toString())
+            if (ChampValide()){
+                loginUser(binding.email.text.toString(),binding.password.text.toString())
+            }
+
 
         }
 
