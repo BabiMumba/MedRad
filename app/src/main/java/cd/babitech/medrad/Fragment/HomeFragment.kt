@@ -6,11 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cd.babitech.medrad.Activity.DetailDoctorActivity
 import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
 import cd.babitech.medrad.databinding.FragmentHomeBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 
@@ -25,6 +29,9 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
 
+
+
+
         val imageList = ArrayList<SlideModel>() // Create image list
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/restaurant-2506c.appspot.com/o/lushi_3.png?alt=media&token=bb41e27f-9a31-47b5-b871-99517f97dfa5", ScaleTypes.FIT))
         imageList.add(
@@ -36,6 +43,16 @@ class HomeFragment : Fragment() {
         binding.profil1.callBtn.setOnClickListener {
             Void.Intent_page(requireActivity(),DetailDoctorActivity::class.java)
         }
+        val circularProgressDrawable = CircularProgressDrawable(requireActivity())
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
+        val lien8= "https://cdn-icons-png.flaticon.com/128/9098/9098500.png"
+        val lien2= "https://cdn-icons-png.flaticon.com/128/1807/1807373.png"
+
+        my_glide(lien8,circularProgressDrawable,binding.domaine.profilDoctor)
+        my_glide(lien2,circularProgressDrawable,binding.domaine2.profilDoctor)
+
 
         return binding.root
     }
@@ -43,6 +60,16 @@ class HomeFragment : Fragment() {
         val sharedPreferences = requireActivity().getSharedPreferences(DATA.PREF_NAME, Context.MODE_PRIVATE)
         val nom  = sharedPreferences.getString(DATA.nom,"").toString()
         binding.nomprofil.setText(nom)
+    }
+    fun my_glide(lien_im:String, place: CircularProgressDrawable, imageView: ImageView){
+        Glide
+            .with(requireActivity())
+            .load(lien_im)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            //.apply(RequestOptions.overrideOf(300,600))
+            .centerInside()
+            .placeholder(place)
+            .into(imageView)
     }
 
 }

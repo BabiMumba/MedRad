@@ -154,17 +154,14 @@
                         android:orientation="horizontal">
 
                         <include
+                            android:id="@+id/domaine"
                             layout="@layout/specialitse_item"
                             />
                         <include
+                            android:id="@+id/domaine2"
                             layout="@layout/specialitse_item"
                             />
-                        <include
-                            layout="@layout/specialitse_item"
-                            />
-                        <include
-                            layout="@layout/specialitse_item"
-                            />
+
 
 
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/_10sdp"
+    android:layout_margin="@dimen/_5sdp"
+    app:cardElevation="@dimen/_5sdp"
+    app:cardCornerRadius="@dimen/_5sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View
+        android:layout_width="@dimen/_5sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@color/vert"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:id="@+id/lin_1"
+            android:padding="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rendez-vous"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/secondary_text"
+                android:textStyle="bold"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_access_time_24"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jeudi 31 juillet a 12h00'"
+                    android:textSize="@dimen/_13ssp"
+                    android:textColor="@color/primary_text"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_more_vert_24"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/menu_btn"
+            />
+        <View
+            android:id="@+id/v_1"
+            android:layout_below="@id/lin_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/secondary_text"
+            />
+        <RelativeLayout
+            android:padding="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/v_1"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profil_doctor"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/black"
+                app:civ_border_color="@color/primary"
+                app:civ_border_width="@dimen/_2sdp"
+                />
+            <TextView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:id="@+id/name_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr Babi Mumba"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text"
+                android:layout_toEndOf="@id/profil_doctor"
+                android:layout_marginStart="@dimen/_2sdp"
+                />
+            <TextView
+                android:layout_below="@id/name_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dermatologue"
+                android:textStyle="bold"
+                android:textColor="@color/secondary_text"
+                android:layout_toEndOf="@id/profil_doctor"
+                android:layout_marginStart="@dimen/_4sdp"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

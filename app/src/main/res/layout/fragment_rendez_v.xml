@@ -5,16 +5,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroud"
     tools:context=".Activity.AddApointActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vos rendez-vous"
-        android:textAllCaps="false"
-        android:textColor="@color/primary_text"
-        android:textStyle="bold"
-        android:textSize="@dimen/_25sdp"
-        android:layout_centerInParent="true"
-        />
+    <androidx.core.widget.NestedScrollView
+        android:padding="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include
+                layout="@layout/item_rendez_vous"
+                />
+            <include
+                layout="@layout/item_rendez_vous"
+                />
+            <include
+                layout="@layout/item_rendez_vous"
+                />
+            <include
+                layout="@layout/item_rendez_vous"
+                />
+            <include
+                layout="@layout/item_rendez_vous"
+                />
+            <include
+                layout="@layout/item_rendez_vous"
+                />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>
