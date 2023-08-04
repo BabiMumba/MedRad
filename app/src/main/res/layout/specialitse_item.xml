@@ -20,9 +20,10 @@
             android:layout_height="@dimen/_80sdp"
             android:src="@drawable/black"
             android:layout_gravity="center"
-            android:id="@+id/profil_doctor"
+            android:id="@+id/image_sp"
             />
         <TextView
+            android:id="@+id/nom_domaine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Domaine"

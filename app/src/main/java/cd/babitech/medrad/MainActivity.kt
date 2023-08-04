@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import cd.babitech.medrad.Activity.AddApointActivity
+import cd.babitech.medrad.Activity.AddSpecialityActivity
 import cd.babitech.medrad.Auth.doctor.RegisterDoctActivity
 import cd.babitech.medrad.Fragment.HomeFragment
 import cd.babitech.medrad.Fragment.MenuFragment
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.selectedItemId = R.id.homeMenu
 
         findViewById<FloatingActionButton>(R.id.floating_button).setOnClickListener {
-            startActivity(Intent(this, RegisterDoctActivity::class.java))
+            startActivity(Intent(this, AddSpecialityActivity::class.java))
 
         }
 

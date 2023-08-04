@@ -4,6 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 object DATA {
 
+    val special = "domaine"
     val PREF_NAME="DataUsers"
     val user = "users"
     val AUTH = FirebaseAuth.getInstance()

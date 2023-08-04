@@ -12,4 +12,25 @@
         <item>Englais</item>
         <item>Swahili</item>
     </string-array>
+
+    <string-array name="specialites">
+        <item>Selectionnez ici</item>
+        <item>Dentiste</item>
+        <item>Cardiologue</item>
+        <item>Oncologue</item>
+        <item>Ophtalmologiste</item>
+        <item>Chirurgien</item>
+        <item>Gynécologue</item>
+        <item>Psychiatre</item>
+        <item>Orthopédiste</item>
+        <item>Neurologue</item>
+        <item>Pédiatre</item>
+        <item>Urologue</item>
+        <item>Endocrinologue</item>
+        <item>Rhumatologue</item>
+        <item>Pneumologue</item>
+        <item>ORL</item>
+    </string-array>
+
+
 </resources>

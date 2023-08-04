@@ -141,35 +141,13 @@
                     android:text="Trouver un specialiste par domaine"
                     android:layout_marginStart="@dimen/_10sdp"
                     />
-                <HorizontalScrollView
-                    android:scrollbars="none"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/special_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp">
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:background="@color/card_background"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <include
-                            android:id="@+id/domaine"
-                            layout="@layout/specialitse_item"
-                            />
-                        <include
-                            android:id="@+id/domaine2"
-                            layout="@layout/specialitse_item"
-                            />
-
-
-
-
-
-                    </LinearLayout>
-
-
-                </HorizontalScrollView>
+                    tools:itemCount="1"
+                    tools:listitem="@layout/specialitse_item"
+                    />
 
 
             </LinearLayout>

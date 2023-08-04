@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cd.babitech.medrad.Activity.DetailDoctorActivity
-import cd.babitech.medrad.R
+import cd.babitech.medrad.Adapter.Speciality
+import cd.babitech.medrad.Model.specialite
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
 import cd.babitech.medrad.databinding.FragmentHomeBinding
@@ -17,8 +19,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class HomeFragment : Fragment() {
+    var list: ArrayList<specialite?>? = null
+    var adapter: Speciality? = null
     lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -27,6 +35,13 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        list = ArrayList()
+        adapter = Speciality(list!!)
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val recyclerView = binding.specialId
+        recyclerView.layoutManager = layoutManager
+        //recuperer les donnee
+
 
 
 
@@ -47,11 +62,6 @@ class HomeFragment : Fragment() {
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()
-        val lien8= "https://cdn-icons-png.flaticon.com/128/9098/9098500.png"
-        val lien2= "https://cdn-icons-png.flaticon.com/128/1807/1807373.png"
-
-        my_glide(lien8,circularProgressDrawable,binding.domaine.profilDoctor)
-        my_glide(lien2,circularProgressDrawable,binding.domaine2.profilDoctor)
 
 
         return binding.root
@@ -62,6 +72,7 @@ class HomeFragment : Fragment() {
         binding.nomprofil.setText(nom)
     }
     fun my_glide(lien_im:String, place: CircularProgressDrawable, imageView: ImageView){
+
         Glide
             .with(requireActivity())
             .load(lien_im)
@@ -70,6 +81,29 @@ class HomeFragment : Fragment() {
             .centerInside()
             .placeholder(place)
             .into(imageView)
+    }
+    fun getSpeciality(){
+        val database = FirebaseDatabase.getInstance()
+        database.getReference("speciality")
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    list!!.clear()
+                    for (data in snapshot.children){
+                        val model = data.getValue(specialite::class.java)
+                        list!!.add(model)
+                    }
+                    adapter!!.notifyDataSetChanged()
+                   // binding.progressBar.visibility = View.GONE
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+
+            })
+
     }
 
 }
