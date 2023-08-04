@@ -22,41 +22,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
+
                 <TextView
-                    android:layout_centerHorizontal="true"
                     android:layout_width="match_parent"
-                    android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:text="Votre Profil"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:text="@string/med_deta"
                     android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_20ssp"
-                    android:layout_margin="@dimen/_10sdp"
-                    />
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-        <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:hint="Votre Nom">
-
-        <EditText
-            android:id="@+id/mail"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:imeOptions="actionNext"
-            android:inputType="textPersonName"
-            android:textColor="@color/primary_text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Nom et adresse e-mail"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
         <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:hint="Votre Nom">
+        android:hint="Votre nom complet">
 
         <EditText
             android:id="@+id/name"
@@ -66,9 +62,312 @@
             android:inputType="textPersonName"
             android:textColor="@color/primary_text" />
     </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:hint="Votre Mail">
+
+        <EditText
+            android:id="@+id/mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/primary_text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Détails personnels et professionnels"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Genre*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <RadioGroup
+            android:gravity="start"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_gravity="start"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="wrap_content"
+                android:id="@+id/male"
+                android:layout_height="wrap_content"
+                android:text="Homme"
+                />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_marginStart="@dimen/_10sdp"
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Femme"
+                />
 
 
+        </RadioGroup>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Date de naissance*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Selectionner la date"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Qualification*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
 
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:hint="Ex:Dentist">
+
+            <EditText
+                android:id="@+id/qualification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:textColor="@color/primary_text" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Spécialisation*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <Spinner
+            android:background="@drawable/background_input_new"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/promotion"
+            android:spinnerMode="dialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40ssp"
+            android:entries="@array/langue"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Expérience*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:hint="Ex:10 ans">
+
+            <EditText
+                android:id="@+id/experiance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/primary_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Vos frais de consultation*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:hint="Ex:10$">
+
+            <EditText
+                android:id="@+id/frais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:textColor="@color/primary_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Numero*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+243"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold"
+                android:layout_marginEnd="@dimen/_5sdp"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ex:975937553"
+                app:hintAnimationEnabled="true"
+
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/number_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:gravity="top"
+                    android:maxEms="9"
+                    android:maxLength="9"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/_14ssp"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Adresse*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:hint="Ex:90,av:centrale...">
+
+            <EditText
+                android:id="@+id/adresse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:textColor="@color/primary_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Détail de la clinique:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:hint="Ex:Gecamine sud">
+
+            <EditText
+                android:id="@+id/hopital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:textColor="@color/primary_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Temps disponible*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:hint="Ex:Lun 12H00">
+
+            <EditText
+                android:id="@+id/horaire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:textColor="@color/primary_text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Langue*:"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <Spinner
+            android:background="@drawable/background_input_new"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/langue"
+            android:spinnerMode="dialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40ssp"
+            android:entries="@array/langue"
+            />
 
     </LinearLayout>
 

@@ -4,5 +4,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profile">Profile\n</string>
     <string name="rend">Rendez-vous</string>
+    <string name="doctor_title"></string>
     <string name="slogan_1">Changer la façon dont vous recevez des soins\n de santé avec l\'excellence médicale.</string>
+    <string name="med_deta">Inscription d\'un médecin professionnel médical pour une consultation médicale en ligne</string>
+    <string-array name="langue">
+        <item>Francais</item>
+        <item>Englais</item>
+        <item>Swahili</item>
+    </string-array>
 </resources>
