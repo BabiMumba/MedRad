@@ -1,6 +1,7 @@
 package cd.babitech.medrad.Fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cd.babitech.medrad.Activity.DetailDoctorActivity
+import cd.babitech.medrad.Activity.DoctorListActivity
 import cd.babitech.medrad.Adapter.Speciality
 import cd.babitech.medrad.Model.specialite
 import cd.babitech.medrad.Unit.DATA
@@ -59,6 +61,9 @@ class HomeFragment : Fragment() {
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()
+        binding.moreDoctor.setOnClickListener {
+            startActivity(Intent(requireActivity(),DoctorListActivity::class.java))
+        }
 
 
         return binding.root

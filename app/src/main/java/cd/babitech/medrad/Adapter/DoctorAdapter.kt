@@ -3,13 +3,9 @@ package cd.babitech.medrad.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cd.babitech.medrad.Model.doctormd
-import cd.babitech.medrad.Model.specialite
-import cd.babitech.medrad.R
 import cd.babitech.medrad.databinding.DoctorConsulBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -44,8 +40,8 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
         circularProgressDrawable.start()
         //holder.nameTextView.text = currentUser!!.domaine
         holder.nom.text = currentUser!!.nom
-        holder.degree.text = currentUser!!.description
-        holder.experiance.text = currentUser!!.experiance
+        holder.degree.text = currentUser!!.degree
+        holder.experiance.text = "${currentUser.experiance} ans d'exp"
         holder.langue.text = currentUser!!.langue
 
         // Utilisez votre bibliothèque de chargement d'images préférée pour charger l'image à partir du lien ici

@@ -60,7 +60,6 @@
                     android:inputType="textPersonName"
                     android:textColor="@color/primary_text" />
             </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.textfield.TextInputLayout
                 app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_10sdp"

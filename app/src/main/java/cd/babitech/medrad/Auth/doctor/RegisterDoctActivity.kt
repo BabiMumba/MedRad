@@ -3,6 +3,7 @@ package cd.babitech.medrad.Auth.doctor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import cd.babitech.medrad.Model.doctormd
 import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
@@ -26,22 +27,28 @@ class RegisterDoctActivity : AppCompatActivity() {
         val langue = binding.langue.selectedItem.toString()
         val biographie = binding.biographie
         val horaire = binding.horaire
+        val degree = binding.degree
         binding.btnNext.setOnClickListener {
             val ref = FirebaseDatabase.getInstance().getReference(DATA.doctor)
             val id = ref.push().key.toString()
             Void.loading(true,binding.progressBar,binding.btnNext)
-            val hashMap = HashMap<String?, Any?>()
-            hashMap["nom"] = nom_complet.text.toString()
-            hashMap["mail"] = mail.text.toString()
-            hashMap["specialite"] = specialite
-            hashMap["experiance"] = experiance.text.toString()
-            hashMap["frais"] = frais.text.toString()
-            hashMap["adresse"] = adres.text.toString()
-            hashMap["clinique"] = clinique.text.toString()
-            hashMap["langue"] = langue
-            hashMap["biographie"] = biographie.text.toString()
-            hashMap["horaire"] = horaire.text.toString()
-            ref.child(id).setValue(hashMap)
+            val profil = "https://www.flmedical.org/Florida/images/ImageLibrary/Membership/Physician%20Profiles/Black%20History%20Month%202022/bhm-main-thumbnail.jpg"
+          val docteur_info =doctormd(nom_complet.text.toString(),
+              degree.text.toString(),
+              profil,
+              experiance.text.toString(),
+              numero.text.toString(),
+              adres.text.toString(),
+              langue,
+              mail.text.toString(),
+              frais.text.toString(),
+              specialite,
+              clinique.text.toString(),
+              horaire.text.toString(),
+              biographie.text.toString(),
+              id,
+          )
+            ref.child(id).setValue(docteur_info)
                 .addOnSuccessListener {
                     Toast.makeText(this, "compte cree", Toast.LENGTH_SHORT).show()
                     Void.loading(false,binding.progressBar,binding.btnNext)

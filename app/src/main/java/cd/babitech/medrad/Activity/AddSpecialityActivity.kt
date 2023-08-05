@@ -2,6 +2,7 @@ package cd.babitech.medrad.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import cd.babitech.medrad.Model.specialite
 import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
@@ -22,6 +23,7 @@ class AddSpecialityActivity : AppCompatActivity() {
             val hashMap = HashMap<String?, Any?>()
             hashMap["domaine"] = "${binding.specialitEdtxt.text}"
             hashMap["image"] = "https://cdn-icons-png.flaticon.com/128/3270/3270928.png"
+         //   val specilite = specialite("","")
             ref.child(id).setValue(hashMap)
                 .addOnSuccessListener {
                     Void.loading(false,binding.progressBar,binding.btnNext)

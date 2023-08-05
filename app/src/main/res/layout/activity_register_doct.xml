@@ -159,10 +159,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:hint="Ex:Dentiste">
+            android:hint="Ex:Degree d'etude">
 
             <EditText
-                android:id="@+id/qualification"
+                android:id="@+id/degree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
@@ -306,7 +306,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
-                android:inputType="numberDecimal"
+                android:inputType="textPostalAddress"
                 android:textColor="@color/primary_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -331,7 +331,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
-                android:inputType="numberDecimal"
+                android:inputType="text"
                 android:textColor="@color/primary_text" />
 
         </com.google.android.material.textfield.TextInputLayout>
