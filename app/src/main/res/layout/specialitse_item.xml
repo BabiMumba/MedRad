@@ -16,6 +16,8 @@
         android:layout_height="match_parent"
         >
         <de.hdodenhof.circleimageview.CircleImageView
+            app:civ_border_width="@dimen/_4sdp"
+            app:civ_border_color="@color/primary"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:src="@drawable/black"
@@ -27,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Domaine"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_gravity="center"
             android:textColor="@color/primary_text"
             android:layout_marginTop="@dimen/_5sdp"

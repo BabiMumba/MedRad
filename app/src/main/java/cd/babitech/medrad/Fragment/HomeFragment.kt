@@ -40,12 +40,9 @@ class HomeFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         val recyclerView = binding.specialId
         recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
         //recuperer les donnee
-
-
-
-
-
+        getSpeciality()
 
         val imageList = ArrayList<SlideModel>() // Create image list
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/restaurant-2506c.appspot.com/o/lushi_3.png?alt=media&token=bb41e27f-9a31-47b5-b871-99517f97dfa5", ScaleTypes.FIT))
@@ -84,7 +81,7 @@ class HomeFragment : Fragment() {
     }
     fun getSpeciality(){
         val database = FirebaseDatabase.getInstance()
-        database.getReference("speciality")
+        database.getReference(DATA.special)
             .addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     list!!.clear()

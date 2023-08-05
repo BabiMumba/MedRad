@@ -20,11 +20,12 @@ class AddSpecialityActivity : AppCompatActivity() {
             val id = ref.push().key.toString()
             Void.loading(true,binding.progressBar,binding.btnNext)
             val hashMap = HashMap<String?, Any?>()
-            hashMap["domaine"] = "${binding.specialitEdtxt}"
+            hashMap["domaine"] = "${binding.specialitEdtxt.text}"
             hashMap["image"] = "https://cdn-icons-png.flaticon.com/128/3270/3270928.png"
             ref.child(id).setValue(hashMap)
                 .addOnSuccessListener {
                     Void.loading(false,binding.progressBar,binding.btnNext)
+                    binding.specialitEdtxt.setText("")
                 }
                 .addOnFailureListener {
                     Void.loading(false,binding.progressBar,binding.btnNext)

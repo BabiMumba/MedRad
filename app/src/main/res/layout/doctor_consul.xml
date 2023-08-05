@@ -30,6 +30,7 @@
 
                 >
                 <ImageView
+                    android:id="@+id/profil_doctor"
                     android:scaleType="fitXY"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -53,6 +54,7 @@
                     android:textStyle="bold"
                     />
                 <TextView
+                    android:id="@+id/degree"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_width="wrap_content"
@@ -61,6 +63,7 @@
                     android:text="master en doctora a l'universiter de lubumbashi"
                     />
                 <TextView
+                    android:id="@+id/langue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primary_text"
@@ -69,6 +72,7 @@
 
             </LinearLayout>
             <RatingBar
+
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/rating_pd"
@@ -84,6 +88,7 @@
 
         </RelativeLayout>
         <TextView
+            android:id="@+id/experiance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 4 ans d'exp"
@@ -104,17 +109,19 @@
             android:layout_marginTop="@dimen/_10sdp"
             >
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/profil_btn"
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:cornerRadius="@dimen/_10sdp"
-                android:text="Plus d'info"
+                android:text="Profil"
                 android:textAllCaps="false"
                 android:textColor="@color/primary"
                 android:backgroundTint="@color/secondary_text"
                 android:layout_weight="1"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/contact_btn"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
