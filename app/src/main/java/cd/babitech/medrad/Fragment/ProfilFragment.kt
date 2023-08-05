@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import cd.babitech.medrad.MainActivity
 import cd.babitech.medrad.Model.User
 import cd.babitech.medrad.R
@@ -26,6 +27,15 @@ class ProfilFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentProfilBinding.inflate(layoutInflater)
+        getdata()
+        binding.btnNext.setOnClickListener {
+            updatedata(binding.email.text.toString(),
+                binding.name.text.toString(),
+                "",
+                binding.numero.text.toString(),
+                binding.adresse.text.toString(),
+                )
+        }
 
         return binding.root
     }
@@ -40,18 +50,18 @@ class ProfilFragment : Fragment() {
         binding.numero.setText(numero)
         binding.adresse.setText(adresse)
     }
-    fun updatedata(email: String, firstName: String,password: String,number: String){
+    fun updatedata(email: String, firstName: String,password: String,number: String,adress:String){
         val firestore = FirebaseFirestore.getInstance()
-        val user = User(firstName,email,number,password, Calendar.getInstance().time.toString(),"")
+        val user = User(firstName,email,number,password, Calendar.getInstance().time.toString(),adress)
         val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
         userDocument.set(user, SetOptions.merge())
             .addOnSuccessListener {
                 val user = user
                 // Enregistrement réussi
+
                 Void.loading(false,binding.progressBar,binding.btnNext)
                 Void.toas(requireActivity(),"Compte modifie")
-                //saveUserDataLocally(user)
-                Void.Intent_page(requireActivity(), MainActivity::class.java)
+                save_share(user)
 
             }
             .addOnFailureListener {
@@ -59,6 +69,19 @@ class ProfilFragment : Fragment() {
                 // Erreur lors de l'enregistrement
                 Log.d("FAILED","Erreur de connexion : ${it.message}")
             }
+
+    }
+    fun save_share(user: User){
+        val sharedPreferences = requireActivity().getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        if (user != null) {
+            val editor = sharedPreferences.edit()
+            editor.putString("nom", user.nom)
+            editor.putString("mail", user.mail)
+            editor.putString("numero", user.numero)
+            editor.putString(DATA.adresse, user.address)
+            editor.apply()
+        }
 
     }
 
