@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.selectedItemId = R.id.homeMenu
 
         findViewById<FloatingActionButton>(R.id.floating_button).setOnClickListener {
-            startActivity(Intent(this, AddSpecialityActivity::class.java))
+            startActivity(Intent(this, RegisterDoctActivity::class.java))
 
         }
 
