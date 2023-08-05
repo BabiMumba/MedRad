@@ -19,11 +19,11 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
 
     // ViewHolder pour afficher chaque élément de la liste
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nom = binding.nameDoctor.text
-        val langue = binding.langue.text
-        val profil = binding.profilDoctor
-        val experiance = binding.experiance.text
-        val degree = binding.degree
+        var nom = binding.nameDoctor
+        var langue = binding.langue
+        var profil = binding.profilDoctor
+        var experiance = binding.experiance
+        var degree = binding.degree
 
     }
 
@@ -43,6 +43,10 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()
         //holder.nameTextView.text = currentUser!!.domaine
+        holder.nom.text = currentUser!!.nom
+        holder.degree.text = currentUser!!.description
+        holder.experiance.text = currentUser!!.experiance
+        holder.langue.text = currentUser!!.langue
 
         // Utilisez votre bibliothèque de chargement d'images préférée pour charger l'image à partir du lien ici
 
@@ -54,8 +58,6 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
             .centerInside()
             .placeholder(circularProgressDrawable)
             .into(holder.profil)
-
-
 
     }
 

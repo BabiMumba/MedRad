@@ -8,6 +8,7 @@ data class doctormd(
     val experiance: String,
     val numero: String,
     val adresse: String,
+    val langue: String,
 
 
     )
