@@ -63,18 +63,8 @@ class RegisterActivity : AppCompatActivity() {
         val date_dins = sdf.format(Date()).toString()
         val firestore = FirebaseFirestore.getInstance()
         val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
-        val user = User(firstName,email,number,password,Calendar.getInstance().time.toString())
-        /*val userData = hashMapOf(
-            "nom" to firstName,
-            "mail" to email,
-            "mot de passe" to password,
-            "numero" to number,
-            "date" to date_dins,
-            "heure" to Calendar.getInstance().time
-        )*/
-
+        val user = User(firstName,email,number,password,Calendar.getInstance().time.toString(),"")
         userDocument.set(user)
-
             .addOnSuccessListener {
                 val user = user
                 // Enregistrement réussi

@@ -13,6 +13,7 @@ object DATA {
     val FirebaseUserUid = FIREBASE_USER!!.uid
     val id_user = FIREBASE_USER?.email?.substringBefore("@").toString()
     val nom = "nom"
+    val adresse = "adress"
     val mail = "mail"
     val numero = "numero"
 
