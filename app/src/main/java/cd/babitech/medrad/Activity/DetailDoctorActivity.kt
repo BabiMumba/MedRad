@@ -2,12 +2,15 @@ package cd.babitech.medrad.Activity
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.DatePicker
 import android.widget.TimePicker
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import cd.babitech.medrad.R
@@ -25,9 +28,23 @@ class DetailDoctorActivity : AppCompatActivity() {
         binding = ActivityDetailDoctorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val doctor_id = intent.getStringExtra("doctor_id")
+
+        if (doctor_id!=""){
+            Toast.makeText(this, "$doctor_id", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this, "le lien est vide", Toast.LENGTH_SHORT).show()
+        }
+
         binding.rendezBtn.setOnClickListener {
             showDateTimeDialog()
+        }
+        binding.toolbar.ivBack.setOnClickListener {
+            onBackPressed()
+        }
 
+        binding.location.setOnClickListener {
+            launchMaps()
         }
 
 
@@ -50,6 +67,16 @@ class DetailDoctorActivity : AppCompatActivity() {
         dateTimeDialog.setNegativeButton("Annuler", null)
 
         dateTimeDialog.show()
+    }
+
+    fun launchMaps() {
+       // //((-11.687933, 27.489543), 27.489543)
+        val latitude = -11.687933 // Votre latitude
+        val longitude = 27.489543 // Votre longitude
+        val uri = Uri.parse("geo:$latitude,$longitude")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        intent.setPackage("com.google.android.apps.maps")
+        startActivity(intent)
     }
 
 

@@ -2,6 +2,7 @@ package cd.babitech.medrad.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import cd.babitech.medrad.Adapter.DoctorAdapter
 import cd.babitech.medrad.Adapter.Speciality
 import cd.babitech.medrad.Model.doctormd
@@ -33,6 +34,7 @@ class DoctorListActivity : AppCompatActivity() {
 
     fun getdoctor(){
         val database = FirebaseDatabase.getInstance()
+        binding.progressItem.loaderFrameLayout.visibility = View.VISIBLE
         database.getReference(DATA.doctor)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -43,6 +45,8 @@ class DoctorListActivity : AppCompatActivity() {
                     }
                     adapter!!.notifyDataSetChanged()
                     // binding.progressBar.visibility = View.GONE
+                    binding.progressItem.loaderFrameLayout.visibility = View.GONE
+
 
                 }
 

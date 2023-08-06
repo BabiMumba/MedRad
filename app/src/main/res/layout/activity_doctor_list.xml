@@ -5,9 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="false"
     tools:context=".Activity.DoctorListActivity">
 
+
+    <include
+        android:id="@+id/home_top_app_bar"
+        layout="@layout/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+    <include
+        android:visibility="gone"
+        android:id="@+id/progress_item"
+        layout="@layout/progress_item"
+        />
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/home_top_app_bar"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/doctor_liste_item"

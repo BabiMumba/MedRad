@@ -1,10 +1,12 @@
 package cd.babitech.medrad.Adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import cd.babitech.medrad.Activity.DetailDoctorActivity
 import cd.babitech.medrad.Model.doctormd
 import cd.babitech.medrad.databinding.DoctorConsulBinding
 import com.bumptech.glide.Glide
@@ -54,6 +56,15 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
             .centerInside()
             .placeholder(circularProgressDrawable)
             .into(holder.profil)
+
+        //si on clique sur l'item
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailDoctorActivity::class.java)
+            intent.putExtra("doctor_id",currentUser.doctor_id)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            holder.itemView.context.startActivity(intent)
+
+        }
 
     }
 

@@ -28,12 +28,16 @@ class RegisterDoctActivity : AppCompatActivity() {
         val biographie = binding.biographie
         val horaire = binding.horaire
         val degree = binding.degree
+        val latitude = -11.687933 // Votre latitude
+        val longitude = 27.489543 // Votre longitude
         binding.btnNext.setOnClickListener {
+
             val ref = FirebaseDatabase.getInstance().getReference(DATA.doctor)
             val id = ref.push().key.toString()
             Void.loading(true,binding.progressBar,binding.btnNext)
             val profil = "https://www.flmedical.org/Florida/images/ImageLibrary/Membership/Physician%20Profiles/Black%20History%20Month%202022/bhm-main-thumbnail.jpg"
-          val docteur_info =doctormd(nom_complet.text.toString(),
+          val docteur_info =doctormd(
+              nom_complet.text.toString(),
               degree.text.toString(),
               profil,
               experiance.text.toString(),
@@ -47,6 +51,8 @@ class RegisterDoctActivity : AppCompatActivity() {
               horaire.text.toString(),
               biographie.text.toString(),
               id,
+              latitude.toString(),
+              longitude.toString()
           )
             ref.child(id).setValue(docteur_info)
                 .addOnSuccessListener {

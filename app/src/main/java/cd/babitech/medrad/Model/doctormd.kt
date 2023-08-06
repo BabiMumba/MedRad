@@ -15,6 +15,8 @@ data class doctormd(
     val horaire: String="",
     val biographie: String="",
     val doctor_id: String="",
+    val latitude: String="",
+    val longitude: String="",
 
 
     )
