@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
-
     private fun loadFragment(fragment: Fragment) {
         // load fragment
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()

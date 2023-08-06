@@ -51,6 +51,7 @@ class ProfilFragment : Fragment() {
         binding.adresse.setText(adresse)
     }
     fun updatedata(email: String, firstName: String,password: String,number: String,adress:String){
+        Void.loading(true,binding.progressBar,binding.btnNext)
         val firestore = FirebaseFirestore.getInstance()
         val user = User(firstName,email,number,password, Calendar.getInstance().time.toString(),adress)
         val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
@@ -58,7 +59,6 @@ class ProfilFragment : Fragment() {
             .addOnSuccessListener {
                 val user = user
                 // Enregistrement réussi
-
                 Void.loading(false,binding.progressBar,binding.btnNext)
                 Void.toas(requireActivity(),"Compte modifie")
                 save_share(user)

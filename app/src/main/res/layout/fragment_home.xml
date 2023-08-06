@@ -70,17 +70,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
+
                 <EditText
-                    android:layout_margin="@dimen/_10sdp"
+                    android:enabled="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Trouver un docteur ou un hopital"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@drawable/arroundir_edit"
-                    android:padding="@dimen/_8sdp"
-                    android:textColorHint="@color/secondary_text"
                     android:drawableStart="@drawable/baseline_search_24"
                     android:drawablePadding="@dimen/_10sdp"
-                    />
+                    android:hint="Trouver un docteur ou un hopital"
+                    android:padding="@dimen/_8sdp"
+                    android:textColorHint="@color/secondary_text" />
 
 
 

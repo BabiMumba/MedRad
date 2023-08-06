@@ -55,7 +55,8 @@ class HomeFragment : Fragment() {
         getData()
         binding.imageSlider.setImageList(imageList)
         binding.profil1.callBtn.setOnClickListener {
-            Void.Intent_page(requireActivity(),DetailDoctorActivity::class.java)
+           // Void.Intent_page(requireActivity(),DetailDoctorActivity::class.java)
+            startActivity(Intent(requireActivity(),DetailDoctorActivity::class.java))
         }
         val circularProgressDrawable = CircularProgressDrawable(requireActivity())
         circularProgressDrawable.strokeWidth = 5f

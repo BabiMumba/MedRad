@@ -16,5 +16,7 @@ object DATA {
     val adresse = "adress"
     val mail = "mail"
     val numero = "numero"
+    val rendez_vous = "rendez_vous"
+
 
 }
