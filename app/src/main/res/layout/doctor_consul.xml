@@ -31,7 +31,7 @@
                 >
                 <ImageView
                     android:id="@+id/profil_doctor"
-                    android:scaleType="fitXY"
+                    android:scaleType="fitCenter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/black"
@@ -98,7 +98,7 @@
             android:backgroundTint="#3B68DD"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_2sdp"
-            android:padding="@dimen/_2sdp"
+            android:padding="@dimen/_4sdp"
             android:textColor="@color/white"
             />
 
