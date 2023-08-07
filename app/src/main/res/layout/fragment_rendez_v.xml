@@ -13,21 +13,10 @@
         android:layout_height="match_parent"
         >
         <LinearLayout
+            android:layout_marginTop="@dimen/_20ssp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <include
-                layout="@layout/item_rendez_vous"
-                />
-            <include
-                layout="@layout/item_rendez_vous"
-                />
-            <include
-                layout="@layout/item_rendez_vous"
-                />
-            <include
-                layout="@layout/item_rendez_vous"
-                />
             <include
                 layout="@layout/item_rendez_vous"
                 />

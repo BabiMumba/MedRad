@@ -1,13 +1,17 @@
 package cd.babitech.medrad.Fragment
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cd.babitech.medrad.Activity.DetailDoctorActivity
@@ -25,6 +29,12 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 
 class HomeFragment : Fragment() {
     var list: ArrayList<specialite?>? = null
@@ -54,10 +64,48 @@ class HomeFragment : Fragment() {
         )
         getData()
         binding.imageSlider.setImageList(imageList)
+        binding.falProfil.profilBtn.visibility = View.GONE
+        binding.falProfil.contactBtn.setOnClickListener {
+            Dexter.withContext(
+                requireActivity()
+            )
+                .withPermission(Manifest.permission.CALL_PHONE)
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
+                        val nume = "tel:+243975937553"
+                        val i = Intent(Intent.ACTION_CALL)
+                        i.data= Uri.parse(nume)
+                        startActivity(i)
+                    }
+
+                    override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
+                        Toast.makeText(
+                            requireActivity(),
+                            "vous devez accepter pour continuer",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    override fun onPermissionRationaleShouldBeShown(
+                        permissionRequest: PermissionRequest,
+                        permissionToken: PermissionToken
+                    ) {
+                        permissionToken.continuePermissionRequest()
+                    }
+                }).check()
+        }
         binding.profil1.callBtn.setOnClickListener {
-           // Void.Intent_page(requireActivity(),DetailDoctorActivity::class.java)
             startActivity(Intent(requireActivity(),DetailDoctorActivity::class.java))
         }
+        binding.profil2.callBtn.setOnClickListener {
+            startActivity(Intent(requireActivity(),DetailDoctorActivity::class.java))
+        }
+        binding.profil3.callBtn.setOnClickListener {
+            startActivity(Intent(requireActivity(),DetailDoctorActivity::class.java))
+        }
+        binding.profil2.nameDoctor.setText("Dr kanda Mbikayi")
+        binding.profil3.nameDoctor.setText("Dr kasongo Mardocher")
+
         val circularProgressDrawable = CircularProgressDrawable(requireActivity())
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f

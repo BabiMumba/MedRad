@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="false"
     android:background="@color/backgroud"
     tools:context=".Activity.AddApointActivity">
 
@@ -162,12 +163,29 @@
                 android:elevation="@dimen/_5sdp"
                 android:layout_margin="@dimen/_10sdp"
                 >
-                <ImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/fond"
-                    android:scaleType="fitXY"
-                    />
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/im1"
+                        android:scaleType="fitXY"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prenez Rendez-vous\n en quelque clique\npartout dans la ville de lubumbashi"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto"
+                        />
+                </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -213,18 +231,11 @@
                     layout="@layout/doctor_item"
                     />
                 <include
+                    android:id="@+id/profil_2"
                     layout="@layout/doctor_item"
                     />
                 <include
-                    layout="@layout/doctor_item"
-                    />
-                <include
-                    layout="@layout/doctor_item"
-                    />
-                <include
-                    layout="@layout/doctor_item"
-                    />
-                <include
+                    android:id="@+id/profil_3"
                     layout="@layout/doctor_item"
                     />
             </LinearLayout>
@@ -236,12 +247,40 @@
                 android:elevation="@dimen/_5sdp"
                 android:layout_margin="@dimen/_10sdp"
                 >
-                <ImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/fond"
-                    android:scaleType="fitXY"
-                    />
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/im2"
+                        android:scaleType="fitXY"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MedRad\nContacter votre medecin\nFixez un Rendez-vous"
+                        android:layout_alignParentStart="true"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Votre sante est notre priorité"
+                        android:layout_alignParentBottom="true"
+                        android:textColor="@color/white"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto"
+                        />
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <RelativeLayout
 
@@ -270,6 +309,7 @@
 
             </RelativeLayout>
             <include
+                android:id="@+id/fal_profil"
                 layout="@layout/doctor_consul"
                 />
 

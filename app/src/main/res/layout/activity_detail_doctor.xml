@@ -59,6 +59,7 @@
                             app:tint="@color/primary"
                             />
                         <TextView
+                            android:id="@+id/name_doctor"
                             android:layout_marginStart="@dimen/_2sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -195,6 +196,7 @@
                         app:tint="@color/primary"
                         />
                     <TextView
+                        android:id="@+id/categorie"
                         android:layout_marginStart="@dimen/_2sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -218,6 +220,7 @@
                         app:tint="@color/primary"
                         />
                     <TextView
+                        android:id="@+id/degree"
                         android:layout_marginStart="@dimen/_2sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -247,7 +250,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="je suis specialiste en chirirgie interne de la place\nje suis specialiste en chirirgie interne de la place\nje suis specialiste en chirirgie interne de la place"
+                    android:text="@string/txt_lorem2"
+                    android:maxLines="5"
+                    android:ellipsize="end"
                     android:textStyle="normal"
                     android:textSize="@dimen/_10sdp"
                     android:textColor="@color/primary_text"

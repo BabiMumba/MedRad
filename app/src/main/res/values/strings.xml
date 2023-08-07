@@ -8,6 +8,7 @@
     <string name="slogan_1">Changer la façon dont vous recevez des soins\n de santé avec l\'excellence médicale.</string>
     <string name="med_deta">Inscription d\'un médecin professionnel médical pour une consultation médicale en ligne</string>
     <string name="search_placeholder_text">Rechercher un docteur</string>
+    <string name="txt_lorem2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatumLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!</string>
     <string-array name="langue">
         <item>Francais</item>
         <item>Englais</item>

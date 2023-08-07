@@ -1,11 +1,14 @@
 package cd.babitech.medrad.Adapter
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -22,8 +25,15 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 
-class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<DoctorAdapter.UserViewHolder>() {
+class DoctorAdapter(context: Context) : RecyclerView.Adapter<DoctorAdapter.UserViewHolder>(),Filterable {
     lateinit var binding: DoctorConsulBinding
+//var userList: ArrayList<doctormd?>
+    var items:ArrayList<doctormd> = ArrayList()
+        set(value) {
+            field = value
+            produictfilter = value
+            notifyDataSetChanged()
+        }
 
     // ViewHolder pour afficher chaque élément de la liste
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,6 +43,8 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
         var experiance = binding.experiance
         var degree = binding.degree
         val call_btn = binding.contactBtn
+
+
 
     }
 
@@ -45,7 +57,7 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
 
-        val currentUser = userList[position]
+        val currentUser = produictfilter[position]
 
         val circularProgressDrawable = CircularProgressDrawable(holder.itemView.context)
         circularProgressDrawable.strokeWidth = 5f
@@ -62,9 +74,6 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
         Glide
             .with(holder.itemView.context)
             .load(currentUser!!.image)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            //.apply(RequestOptions.overrideOf(300,600))
-            .centerInside()
             .placeholder(circularProgressDrawable)
             .into(holder.profil)
 
@@ -72,8 +81,14 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailDoctorActivity::class.java)
             intent.putExtra("doctor_id",currentUser.doctor_id)
+            intent.putExtra("name",currentUser.nom)
+            intent.putExtra("profil",currentUser.image)
+            intent.putExtra("numero",currentUser.numero)
+            intent.putExtra("categorie",currentUser.specialite)
+            intent.putExtra("degree",currentUser.degree)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             holder.itemView.context.startActivity(intent)
+
         }
         binding.contactBtn.setOnClickListener {
             Dexter.withContext(
@@ -104,12 +119,50 @@ class DoctorAdapter(var userList: ArrayList<doctormd?>) : RecyclerView.Adapter<D
                     }
                 }).check()
         }
+        binding.profilBtn.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailDoctorActivity::class.java)
+            intent.putExtra("doctor_id",currentUser.doctor_id)
+            intent.putExtra("name",currentUser.nom)
+            intent.putExtra("profil",currentUser.image)
+            intent.putExtra("numero",currentUser.numero)
+            intent.putExtra("categorie",currentUser.specialite)
+            intent.putExtra("degree",currentUser.degree)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            holder.itemView.context.startActivity(intent)
+        }
 
 
     }
 
-    override fun getItemCount(): Int {
-        return userList.size
+    override fun getItemCount()=produictfilter.size
+
+    override fun getFilter(): Filter {
+        return object:Filter(){
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                if (charSearch.isEmpty()){
+                    produictfilter = items
+                }else{
+                    val resultlist = items.filter {
+                        it.nom.lowercase().contains( charSearch.lowercase())
+                    }
+                    produictfilter = resultlist as ArrayList<doctormd>
+                }
+                val filterResults = FilterResults()
+                filterResults.values = produictfilter
+                return filterResults
+            }
+            override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
+                produictfilter = p1?.values as ArrayList<doctormd>
+                notifyDataSetChanged()
+            }
+
+        }
+
+
     }
+    private  var produictfilter:ArrayList<doctormd> = ArrayList()
+
+
 }
 

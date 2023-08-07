@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import cd.babitech.medrad.R
 import cd.babitech.medrad.databinding.ActivityDetailDoctorBinding
+import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -28,10 +29,33 @@ class DetailDoctorActivity : AppCompatActivity() {
         binding = ActivityDetailDoctorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val doctor_id = intent.getStringExtra("doctor_id")
+        //a recevoir les id
+        //aaa
+        /*intent.putExtra("doctor_id",currentUser.doctor_id)
+        intent.putExtra("name",currentUser.nom)
+        intent.putExtra("profil",currentUser.image)
+        intent.putExtra("numero",currentUser.numero)
+        intent.putExtra("categorie",currentUser.specialite)
+        intent.putExtra("degree",currentUser.degree)*/
 
-        if (doctor_id!=""){
+        val doctor_id = intent.getStringExtra("doctor_id")
+        val nom_doctor = intent.getStringExtra("name").toString()
+        val numero = intent.getStringExtra("numero")
+        val image_profil = intent.getStringExtra("profil")
+        val categorie = intent.getStringExtra("categorie")
+        val degree = intent.getStringExtra("degree")
+
+
+        if (doctor_id!=null || doctor_id!=""){
             Toast.makeText(this, "$doctor_id", Toast.LENGTH_SHORT).show()
+            binding.nameDoctor.text = "$nom_doctor"
+            Glide
+                .with(this)
+                .load(image_profil)
+                .into(binding.profilDoctor)
+            binding.categorie.text = "Categorie: $categorie"
+
+
         }else{
             Toast.makeText(this, "le lien est vide", Toast.LENGTH_SHORT).show()
         }
