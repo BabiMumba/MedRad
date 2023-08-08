@@ -5,7 +5,7 @@ cette application offre une solution numérique qui permet aux utilisateurs de p
 
 ## 🚀 Technologie utiliser
 
-*  IDE: **Android Studio(flamingo)**
+*  IDE: **Android Studio**
 *  Outils de gestion de version: **Github**
 *  langage: **Kotlin**
 *  Front-end:**xml**
