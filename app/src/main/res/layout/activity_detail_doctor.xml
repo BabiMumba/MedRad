@@ -34,6 +34,7 @@
                     android:id="@+id/profil_doctor"
                     />
                 <ImageButton
+                    android:id="@+id/call_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/baseline_call_24"
@@ -41,121 +42,129 @@
                     app:tint="@color/vert"
                     android:backgroundTint="@color/primary"
                     />
+
                 <LinearLayout
-                    android:layout_toEndOf="@id/profil_doctor"
-                    android:layout_margin="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/profil_doctor"
+                    android:orientation="vertical">
+
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/baseline_check_circle_24"
-                            app:tint="@color/primary"
-                            />
+                            app:tint="@color/primary" />
+
                         <TextView
                             android:id="@+id/name_doctor"
-                            android:layout_marginStart="@dimen/_2sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_2sdp"
                             android:text="Dr Babi Mumba"
                             android:textColor="@color/primary_text"
                             android:textSize="@dimen/_13ssp"
-                            android:textStyle="bold"
-                            />
+                            android:textStyle="bold" />
 
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="20sp"
                             android:src="@drawable/boutils"
-                            app:tint="@color/secondary_text"
-                            />
+                            app:tint="@color/secondary_text" />
+
                         <TextView
-                            android:layout_marginStart="@dimen/_2sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_2sdp"
                             android:text="Hopital:Gecamine sud"
                             android:textColor="@color/primary_text"
                             android:textSize="@dimen/_13ssp"
-                            android:textStyle="normal"
-                            />
+                            android:textStyle="normal" />
 
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="20sp"
                             android:src="@drawable/baseline_language_24"
-                            app:tint="@color/secondary_text"
-                            />
+                            app:tint="@color/secondary_text" />
+
                         <TextView
-                            android:layout_marginStart="@dimen/_2sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_2sdp"
                             android:text="Langue: Francais,Swahili,Englais"
                             android:textColor="@color/primary_text"
                             android:textSize="@dimen/_10ssp"
-                            android:textStyle="normal"
-                            />
+                            android:textStyle="normal" />
 
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="20sp"
                             android:src="@drawable/exeperiance"
-                            app:tint="@color/secondary_text"
-                            />
+                            app:tint="@color/secondary_text" />
+
                         <TextView
-                            android:layout_marginStart="@dimen/_2sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_2sdp"
                             android:text="Experiance: 1 ans"
                             android:textColor="@color/primary_text"
                             android:textSize="@dimen/_10ssp"
-                            android:textStyle="normal"
-                            />
+                            android:textStyle="normal" />
 
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="20sp"
                             android:src="@drawable/baseline_location_on_24"
-                            app:tint="@color/secondary_text"
-                            />
+                            app:tint="@color/secondary_text" />
+
                         <TextView
-                            android:layout_marginStart="@dimen/_2sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_2sdp"
                             android:text="Lubumbashi"
                             android:textColor="@color/primary_text"
                             android:textSize="@dimen/_10ssp"
-                            android:textStyle="normal"
-                            />
+                            android:textStyle="normal" />
 
                     </LinearLayout>
 
@@ -250,7 +259,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_lorem2"
+                    android:text="@string/descrip"
                     android:maxLines="5"
                     android:ellipsize="end"
                     android:textStyle="normal"
@@ -316,6 +325,15 @@
                 android:orientation="vertical"
                 >
                 <TextView
+                    android:id="@+id/time_datesele"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/primary_text"
+                    />
+                <TextView
                     android:id="@+id/horaire_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -359,15 +377,26 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
     <com.google.android.material.button.MaterialButton
-        android:layout_alignParentBottom="true"
         android:id="@+id/rendez_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:text="Prendre Rendez-vous"
         android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:layout_margin="@dimen/_10sdp"
+        android:textColor="@color/white" />
+    <ProgressBar
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_below="@+id/rendez_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/progressBar"
         />
 
 

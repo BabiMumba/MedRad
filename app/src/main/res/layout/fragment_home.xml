@@ -74,23 +74,6 @@
                 android:layout_height="wrap_content"
                 >
 
-                <EditText
-                    android:enabled="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="@drawable/arroundir_edit"
-                    android:drawableStart="@drawable/baseline_search_24"
-                    android:drawablePadding="@dimen/_10sdp"
-                    android:hint="Trouver un docteur ou un hopital"
-                    android:padding="@dimen/_8sdp"
-                    android:textColorHint="@color/secondary_text" />
-
-
-
             </RelativeLayout>
         </LinearLayout>
 
@@ -172,10 +155,11 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/im1"
+                        android:src="@drawable/ban4"
                         android:scaleType="fitXY"
                         />
                     <TextView
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Prenez Rendez-vous\n en quelque clique\npartout dans la ville de lubumbashi"
@@ -257,10 +241,11 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/im2"
+                        android:src="@drawable/ban2"
                         android:scaleType="fitXY"
                         />
                     <TextView
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="MedRad\nContacter votre medecin\nFixez un Rendez-vous"

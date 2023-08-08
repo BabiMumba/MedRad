@@ -59,13 +59,13 @@ class HomeFragment : Fragment() {
         val imageList = ArrayList<SlideModel>() // Create image list
         imageList.add(
             SlideModel(
-                "https://firebasestorage.googleapis.com/v0/b/restaurant-2506c.appspot.com/o/lushi_3.png?alt=media&token=bb41e27f-9a31-47b5-b871-99517f97dfa5",
+                "https://i.postimg.cc/15H3Jgsx/ban1.png",
                 ScaleTypes.FIT
             )
         )
         imageList.add(
             SlideModel(
-                "https://firebasestorage.googleapis.com/v0/b/restaurant-2506c.appspot.com/o/lstore.png?alt=media&token=25a865b3-304b-47b6-a2cc-1d986d5c5013",
+                "https://i.postimg.cc/7LpHf0Mz/ban3.png",
                 ScaleTypes.FIT
             )
         )

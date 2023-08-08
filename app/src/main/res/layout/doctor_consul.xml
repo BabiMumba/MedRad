@@ -60,14 +60,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primary_text"
-                    android:text="Diplome,Master,Licence"
+                    android:text="Diplome:Doctorat en medecine"
                     />
                 <TextView
                     android:id="@+id/langue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primary_text"
-                    android:text="Langue:Francais,Englais,Swahili"
+                    android:text="Langue:francais,anglais"
                     />
 
             </LinearLayout>

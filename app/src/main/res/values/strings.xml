@@ -9,6 +9,7 @@
     <string name="med_deta">Inscription d\'un médecin professionnel médical pour une consultation médicale en ligne</string>
     <string name="search_placeholder_text">Rechercher un docteur</string>
     <string name="txt_lorem2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatumLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!</string>
+    <string name="descrip">Je suis médecin chirurgien spécialisé dans la chirurgie orthopédique. Avec une vaste expérience dans le domaine, je traite les blessures et les maladies affectant les os, les articulations, les muscles et les tendons. Mon objectif est de soulager la douleur et d\'améliorer la mobilité de mes patients grâce à des techniques chirurgicales avancées et à des soins post-opératoires attentifs. J\'apporte une approche personnalisée à chaque cas pour obtenir les meilleurs résultats possibles.</string>
     <string-array name="langue">
         <item>Francais</item>
         <item>Englais</item>

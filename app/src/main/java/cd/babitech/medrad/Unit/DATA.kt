@@ -8,6 +8,7 @@ object DATA {
     val doctor = "docteur"
     val PREF_NAME="DataUsers"
     val user = "users"
+    val rendeVous = "Rende_vous"
     val AUTH = FirebaseAuth.getInstance()
     val FIREBASE_USER = AUTH.currentUser
     val FirebaseUserUid = FIREBASE_USER!!.uid
