@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/fonction"
-            android:text="Contacter"
+            android:text="Appel vocal"
             android:layout_centerHorizontal="true"
             android:backgroundTint="@color/primary"
             android:padding="@dimen/_5sdp"
