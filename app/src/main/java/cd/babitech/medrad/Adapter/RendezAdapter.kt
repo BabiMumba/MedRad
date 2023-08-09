@@ -8,12 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cd.babitech.medrad.Model.rende_vous
-import cd.babitech.medrad.Model.specialite
 import cd.babitech.medrad.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
-class RendezAdapter(var userList: ArrayList<rende_vous?>) : RecyclerView.Adapter<RendezAdapter.UserViewHolder>() {
+class RendezAdapter(var userList: ArrayList<rende_vous>) : RecyclerView.Adapter<RendezAdapter.UserViewHolder>() {
 
     // ViewHolder pour afficher chaque élément de la liste
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
