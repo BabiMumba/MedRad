@@ -91,7 +91,7 @@ class DetailDoctorActivity : AppCompatActivity() {
         val timePicker = dialogView.findViewById<TimePicker>(R.id.timePicker)
         dateTimeDialog.setView(dialogView)
         dateTimeDialog.setPositiveButton("Ok") { _, _ ->
-            val selectedDate = "${datePicker.year}-${datePicker.month + 1}-${datePicker.dayOfMonth}"
+            val selectedDate = "${datePicker.dayOfMonth}-${datePicker.month + 1}-${datePicker.year}"
             val selectedTime = "${timePicker.hour}:${timePicker.minute}"
             val result = "$selectedDate à $selectedTime"
             daterende= result
@@ -156,7 +156,7 @@ class DetailDoctorActivity : AppCompatActivity() {
         val date_dins = sdf.format(Date()).toString()
         val firestore = FirebaseFirestore.getInstance()
         val id = System.currentTimeMillis().toString()
-        val mRef = firestore.collection(DATA.rendeVous+id).document(DATA.id_user)
+        val mRef = firestore.collection(DATA.rendeVous).document(DATA.id_user+id)
         val rendezvous = rende_vous(id,DATA.id_user,id_doctor,date,profil,nom,domaine,date_dins)
         mRef.set(rendezvous)
             .addOnSuccessListener {

@@ -42,6 +42,7 @@
                     android:layout_marginEnd="@dimen/_5sdp"
                     />
                 <TextView
+                    android:id="@+id/date_rendev"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jeudi 31 juillet a 12h00'"
@@ -95,6 +96,7 @@
                 android:layout_marginStart="@dimen/_2sdp"
                 />
             <TextView
+                android:id="@+id/domaine_doctore"
                 android:layout_below="@id/name_doctor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
