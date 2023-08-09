@@ -271,7 +271,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <RelativeLayout
-
+                android:id="@+id/my_relative"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="match_parent"

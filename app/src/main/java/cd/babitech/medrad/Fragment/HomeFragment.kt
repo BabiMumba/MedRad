@@ -84,6 +84,9 @@ class HomeFragment : Fragment() {
         binding.profil3.callBtn.setOnClickListener {
             call_app()
         }
+        binding.myRelative.setOnClickListener {
+            startActivity(Intent(requireActivity(), DoctorListActivity::class.java))
+        }
         binding.profil2.nameDoctor.setText("Dr kanda Mbikayi")
         binding.profil3.nameDoctor.setText("Dr kasongo Mardocher")
         binding.profil3.fonction.setText("Pédiatre")

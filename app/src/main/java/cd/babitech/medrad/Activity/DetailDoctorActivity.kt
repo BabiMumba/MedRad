@@ -39,6 +39,7 @@ import java.util.Locale
 class DetailDoctorActivity : AppCompatActivity() {
     private var selectedDate: Calendar = Calendar.getInstance()
     lateinit var binding: ActivityDetailDoctorBinding
+    lateinit var daterende:String
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,18 +89,18 @@ class DetailDoctorActivity : AppCompatActivity() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_date_time, null)
         val datePicker = dialogView.findViewById<DatePicker>(R.id.datePicker)
         val timePicker = dialogView.findViewById<TimePicker>(R.id.timePicker)
-
         dateTimeDialog.setView(dialogView)
         dateTimeDialog.setPositiveButton("Ok") { _, _ ->
             val selectedDate = "${datePicker.year}-${datePicker.month + 1}-${datePicker.dayOfMonth}"
             val selectedTime = "${timePicker.hour}:${timePicker.minute}"
             val result = "$selectedDate à $selectedTime"
+            daterende= result
             binding.timeDatesele.text = result
             val dialogue =AlertDialog.Builder(this)
             dialogue.setTitle("Rendez-Vous")
             dialogue.setMessage("Confirmer la transaction")
             dialogue.setPositiveButton("Ok") { a, b ->
-                sendData(id_doctor,profil,nom,domaine,date)
+                sendData(id_doctor,profil,nom,domaine,daterende)
                 a.dismiss()
             }
             dialogue.setNegativeButton("Annuler", null)
@@ -151,10 +152,11 @@ class DetailDoctorActivity : AppCompatActivity() {
     fun sendData(id_doctor:String,profil:String,nom:String,domaine:String,date:String){
         Void.loading(true,binding.progressBar,binding.rendezBtn)
         val sdf = SimpleDateFormat("dd/M/yyyy HH:M")
+        val date_id = SimpleDateFormat("dd-M-yyyy-HH-M")
         val date_dins = sdf.format(Date()).toString()
         val firestore = FirebaseFirestore.getInstance()
         val id = System.currentTimeMillis().toString()
-        val mRef = firestore.collection(DATA.rendeVous).document(DATA.id_user)
+        val mRef = firestore.collection(DATA.rendeVous+id).document(DATA.id_user)
         val rendezvous = rende_vous(id,DATA.id_user,id_doctor,date,profil,nom,domaine,date_dins)
         mRef.set(rendezvous)
             .addOnSuccessListener {
@@ -167,10 +169,7 @@ class DetailDoctorActivity : AppCompatActivity() {
                 Log.d("FAILED","Erreur de connexion : ${it.message}")
             }
 
-
     }
-
-
 
 
     // Fonction pour afficher la boîte de dialogue pour choisir la date
