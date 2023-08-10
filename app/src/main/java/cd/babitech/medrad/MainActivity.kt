@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction
 import cd.babitech.medrad.Activity.AddApointActivity
 import cd.babitech.medrad.Activity.AddSpecialityActivity
 import cd.babitech.medrad.Activity.DoctorListActivity
+import cd.babitech.medrad.Activity.NotificationActivity
 import cd.babitech.medrad.Auth.doctor.RegisterDoctActivity
 import cd.babitech.medrad.Fragment.HomeFragment
 import cd.babitech.medrad.Fragment.MenuFragment
@@ -27,7 +28,9 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottomNavigationView.selectedItemId = R.id.homeMenu
-
+        binding.myToolbar.notifIc.setOnClickListener {
+            startActivity(Intent(this, NotificationActivity::class.java))
+        }
         findViewById<FloatingActionButton>(R.id.floating_button).setOnClickListener {
             startActivity(Intent(this, DoctorListActivity::class.java))
 

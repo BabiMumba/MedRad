@@ -37,6 +37,17 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15ssp"
                 />
+            <ImageView
+                android:id="@+id/notif_ic"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_notifications_active_24"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:tint="@color/white"
+                android:layout_marginEnd="@dimen/_5sdp"
+                />
         </RelativeLayout>
 
 
