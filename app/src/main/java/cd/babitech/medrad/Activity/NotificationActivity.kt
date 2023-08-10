@@ -18,6 +18,10 @@ class NotificationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Glide.with(this).asGif().load(R.raw.vide).into(binding.emptyListe)
+        binding.toto.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+        binding.toto.titreTopBar.setText("Notification")
 
 
     }

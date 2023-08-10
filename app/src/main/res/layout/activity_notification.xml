@@ -6,6 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.NotificationActivity">
+    <include
+        layout="@layout/layout_top_bar"
+        android:id="@+id/toto"
+        />
+
     <ImageView
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_200sdp"

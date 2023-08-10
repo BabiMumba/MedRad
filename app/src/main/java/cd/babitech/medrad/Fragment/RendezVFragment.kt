@@ -41,7 +41,6 @@ class RendezVFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         fstore.collection(DATA.rendeVous)
             .whereEqualTo("id_user",DATA.id_user)
-            .orderBy("date_env")
             .get()
             .addOnSuccessListener {
             if (!it.isEmpty){

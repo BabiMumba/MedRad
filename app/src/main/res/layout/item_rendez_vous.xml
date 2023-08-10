@@ -58,12 +58,14 @@
 
         </LinearLayout>
         <ImageView
+            android:padding="@dimen/_5sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_more_vert_24"
+            android:src="@drawable/suprimer_ic"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:id="@+id/menu_btn"
+            app:tint="@color/rouge"
+            android:id="@+id/delete_btn"
             />
         <View
             android:id="@+id/v_1"
