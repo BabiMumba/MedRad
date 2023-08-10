@@ -42,7 +42,7 @@ class RendezAdapter(var userList: ArrayList<rende_vous>) : RecyclerView.Adapter<
         circularProgressDrawable.start()
         holder.nom.text = currentUser!!.nom_docteur
         holder.date_rendev.text = currentUser!!.date_rendev
-        holder.domaine.text = currentUser!!.domaine
+        holder.domaine.text = DATA.id_user+currentUser.id_rens//currentUser!!.domaine
 
         Glide
             .with(holder.itemView.context)
@@ -60,10 +60,10 @@ class RendezAdapter(var userList: ArrayList<rende_vous>) : RecyclerView.Adapter<
             dialogue.setPositiveButton("Supprimer"){ _, _ ->
                 val firebase = FirebaseFirestore.getInstance()
                 firebase.collection(DATA.rendeVous)
-                    .document("${DATA.id_user}${currentUser.id_rens}")
+                    .document(DATA.id_user+currentUser.id_rens)
                     .delete()
                     .addOnSuccessListener {
-                        Void.toas(holder.itemView.context,"Rendez-vous Supprimer")
+                        Void.toas(holder.itemView.context,"Rendez-vous Supprimer\nRafraîchissez la liste en poussant vers le bas pour voir le changement.")
                     }
                     .addOnFailureListener {
                         Void.toas(holder.itemView.context,"Erreur:${it.message}")

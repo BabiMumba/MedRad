@@ -156,6 +156,7 @@ class DetailDoctorActivity : AppCompatActivity() {
         val date_dins = sdf.format(Date()).toString()
         val firestore = FirebaseFirestore.getInstance()
         val id = System.currentTimeMillis().toString()
+
         val mRef = firestore.collection(DATA.rendeVous).document(DATA.id_user+id)
         val rendezvous = rende_vous(id,DATA.id_user,id_doctor,date,profil,nom,domaine,date_dins)
         mRef.set(rendezvous)
