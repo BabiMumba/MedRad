@@ -17,7 +17,7 @@
         >
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_350sdp"
+            android:layout_height="@dimen/_310sdp"
             android:src="@drawable/do1"
             />
     </RelativeLayout>
@@ -54,14 +54,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_patient"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_margin="@dimen/_10sdp"
         android:backgroundTint="@color/primary"
         android:padding="@dimen/_10sdp"
         android:text="Commencer"

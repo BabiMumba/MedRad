@@ -1,4 +1,4 @@
-package cd.babitech.medrad.Fragment
+package cd.babitech.medrad.Activity
 
 import android.content.Context
 import android.content.Intent
@@ -10,56 +10,55 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import cd.babitech.medrad.Activity.EditProfilActivity
-import cd.babitech.medrad.MainActivity
 import cd.babitech.medrad.Model.User
 import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
-import cd.babitech.medrad.databinding.FragmentProfilBinding
+import cd.babitech.medrad.databinding.ActivityEditProfilBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import java.util.Calendar
 
-class ProfilFragment : Fragment() {
-    lateinit var binding: FragmentProfilBinding
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentProfilBinding.inflate(layoutInflater)
-        getdata()
+class EditProfilActivity : AppCompatActivity() {
+    lateinit var binding: ActivityEditProfilBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityEditProfilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        binding.editBtn.setOnClickListener {
-            startActivity(Intent(requireActivity(),EditProfilActivity::class.java))
+
+        getdata()
+        binding.toolbar.ivBack.setOnClickListener {
+            onBackPressed()
         }
-       /* binding.btnNext.setOnClickListener {
-            updatedata(binding.email.text.toString(),
+        binding.toolbar.titreTopBar.setText("Modifier votre compte")
+
+        binding.btnNextSave.setOnClickListener {
+            updatedata(
+                binding.name.text.toString(),
                 binding.name.text.toString(),
                 "",
-                binding.numero.text.toString(),
+                binding.numberPhone.text.toString(),
                 binding.adresse.text.toString(),
-                )
-        }*/
-
-        return binding.root
+            )
+        }
     }
     fun getdata(){
-        val sharedPreferences = requireActivity().getSharedPreferences(DATA.PREF_NAME, Context.MODE_PRIVATE)
+        val sharedPreferences = this.getSharedPreferences(DATA.PREF_NAME, Context.MODE_PRIVATE)
         val nom  = sharedPreferences.getString(DATA.nom,"").toString()
         val numero  = sharedPreferences.getString(DATA.numero,"").toString()
         val mail  = sharedPreferences.getString(DATA.mail,"").toString()
         val adresse  = sharedPreferences.getString(DATA.adresse,"").toString()
-        binding.nameUser.setText(nom)
-        binding.mailUser.setText(mail)
-        binding.numeberUser.setText(numero)
+        binding.name.setText(nom)
+        binding.numberPhone.setText(numero)
+        binding.mail.setText(mail)
         binding.adresse.setText(adresse)
 
     }
 
-    /*fun updatedata(email: String, firstName: String,password: String,number: String,adress:String){
-        Void.loading(true,binding.progressBar,binding.btnNext)
+    fun updatedata(email: String, firstName: String,password: String,number: String,adress:String){
+        Void
+        Void.loading(true,binding.progressBar,binding.btnNextSave)
         val firestore = FirebaseFirestore.getInstance()
         val user = User(firstName,email,number,password, Calendar.getInstance().time.toString(),adress)
         val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
@@ -67,20 +66,20 @@ class ProfilFragment : Fragment() {
             .addOnSuccessListener {
                 val user = user
                 // Enregistrement réussi
-                Void.loading(false,binding.progressBar,binding.btnNext)
-                Void.toas(requireActivity(),"Compte modifie")
+                Void.loading(false,binding.progressBar,binding.btnNextSave)
+                Void.toas(this,"Compte modifie")
                 save_share(user)
 
             }
             .addOnFailureListener {
-                Void.loading(false,binding.progressBar,binding.btnNext)
+                Void.loading(false,binding.progressBar,binding.btnNextSave)
                 // Erreur lors de l'enregistrement
                 Log.d("FAILED","Erreur de connexion : ${it.message}")
             }
 
-    }*/
+    }
     fun save_share(user: User){
-        val sharedPreferences = requireActivity().getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
+        val sharedPreferences = this.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         if (user != null) {
             val editor = sharedPreferences.edit()
@@ -91,11 +90,6 @@ class ProfilFragment : Fragment() {
             editor.apply()
         }
 
-    }
-
-    override fun onResume() {
-        getdata()
-        super.onResume()
     }
 
 }

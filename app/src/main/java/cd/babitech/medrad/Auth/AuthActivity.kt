@@ -21,4 +21,9 @@ class AuthActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
+    }
 }
