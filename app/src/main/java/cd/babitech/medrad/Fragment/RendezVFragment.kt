@@ -65,6 +65,7 @@ class RendezVFragment : Fragment() {
                 }
                 binding.mayRendevz.adapter = rendeAdapter
                 binding.mayRendevz.layoutManager = LinearLayoutManager(requireActivity())
+                rendeAdapter.notifyDataSetChanged()
             }
         }
     }

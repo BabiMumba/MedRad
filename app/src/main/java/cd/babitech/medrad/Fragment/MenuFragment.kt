@@ -21,7 +21,7 @@ class MenuFragment : Fragment() {
         binding = FragmentMenuBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
 
-        binding.addDoctor.setOnClickListener {
+        binding.addDoctorNew.setOnClickListener {
             startActivity(Intent(requireActivity(),RegisterDoctActivity::class.java))
         }
         binding.addDomaine.setOnClickListener {

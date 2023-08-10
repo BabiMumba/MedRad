@@ -3,6 +3,7 @@ package cd.babitech.medrad
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import cd.babitech.medrad.Activity.AddApointActivity
@@ -47,24 +48,27 @@ class MainActivity : AppCompatActivity() {
             val fragment: Fragment
             when (item.itemId) {
                 R.id.homeMenu -> {
+                    binding.myToolbar.toolbar.visibility = View.VISIBLE
                     fragment = HomeFragment()
                     binding.myToolbar.idTitre.setText("Accueil")
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.apoint -> {
+                    binding.myToolbar.toolbar.visibility = View.VISIBLE
                     binding.myToolbar.idTitre.setText("Rendez-Vous")
                     fragment = RendezVFragment()
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.profileMenu -> {
+                    binding.myToolbar.toolbar.visibility = View.GONE
                     fragment = ProfilFragment()
                     loadFragment(fragment)
-                    binding.myToolbar.idTitre.setText("Profile")
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.more -> {
+                    binding.myToolbar.toolbar.visibility = View.VISIBLE
                     binding.myToolbar.idTitre.setText("Plus")
                     fragment = MenuFragment()
                     loadFragment(fragment)

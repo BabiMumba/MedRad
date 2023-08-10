@@ -42,7 +42,7 @@ class RendezAdapter(var userList: ArrayList<rende_vous>) : RecyclerView.Adapter<
         circularProgressDrawable.start()
         holder.nom.text = currentUser!!.nom_docteur
         holder.date_rendev.text = currentUser!!.date_rendev
-        holder.domaine.text = DATA.id_user+currentUser.id_rens//currentUser!!.domaine
+        holder.domaine.text = currentUser!!.domaine
 
         Glide
             .with(holder.itemView.context)

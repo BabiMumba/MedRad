@@ -28,14 +28,14 @@ class ProfilFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentProfilBinding.inflate(layoutInflater)
         getdata()
-        binding.btnNext.setOnClickListener {
+       /* binding.btnNext.setOnClickListener {
             updatedata(binding.email.text.toString(),
                 binding.name.text.toString(),
                 "",
                 binding.numero.text.toString(),
                 binding.adresse.text.toString(),
                 )
-        }
+        }*/
 
         return binding.root
     }
@@ -45,12 +45,13 @@ class ProfilFragment : Fragment() {
         val numero  = sharedPreferences.getString(DATA.numero,"").toString()
         val mail  = sharedPreferences.getString(DATA.mail,"").toString()
         val adresse  = sharedPreferences.getString(DATA.adresse,"").toString()
-        binding.name.setText(nom)
-        binding.email.setText(mail)
-        binding.numero.setText(numero)
+        binding.nameUser.setText(nom)
+        binding.mailUser.setText(mail)
+        binding.numeberUser.setText(numero)
         binding.adresse.setText(adresse)
     }
-    fun updatedata(email: String, firstName: String,password: String,number: String,adress:String){
+
+    /*fun updatedata(email: String, firstName: String,password: String,number: String,adress:String){
         Void.loading(true,binding.progressBar,binding.btnNext)
         val firestore = FirebaseFirestore.getInstance()
         val user = User(firstName,email,number,password, Calendar.getInstance().time.toString(),adress)
@@ -70,7 +71,7 @@ class ProfilFragment : Fragment() {
                 Log.d("FAILED","Erreur de connexion : ${it.message}")
             }
 
-    }
+    }*/
     fun save_share(user: User){
         val sharedPreferences = requireActivity().getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

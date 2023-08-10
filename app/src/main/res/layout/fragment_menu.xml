@@ -18,36 +18,7 @@
             android:orientation="vertical"
 
             >
-            <RelativeLayout
-                android:background="@color/card_background"
-                android:id="@+id/aboute"
-                android:padding="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-                <ImageView
-                    app:tint="@color/primary_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_keyboard_arrow_right_24"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_centerVertical="true"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold"
-                    />
 
-
-
-            </RelativeLayout>
             <RelativeLayout
                 android:background="@color/card_background"
                 android:padding="@dimen/_10sdp"
@@ -95,6 +66,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ajouter domaine"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/primary_text"
+                    android:textStyle="bold"
+                    />
+
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/add_doctor_new"
+                android:background="@color/card_background"
+                android:padding="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    app:tint="@color/primary_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_keyboard_arrow_right_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ajouter docteur"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_centerVertical="true"
