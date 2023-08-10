@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:backgroundTint="@color/Accent"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/Accent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/my_profil"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/black"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/_2sdp"
+                />
+            <TextView
+                android:layout_toEndOf="@id/my_profil"
+                android:id="@+id/id_titre"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BabiMumba"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                />
+        </RelativeLayout>
+
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+</RelativeLayout>

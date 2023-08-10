@@ -29,6 +29,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -84,6 +85,15 @@ class HomeFragment : Fragment() {
         binding.profil3.callBtn.setOnClickListener {
             call_app()
         }
+        binding.profil4.callBtn.setOnClickListener {
+            call_app()
+        }
+        binding.profil5.callBtn.setOnClickListener {
+            call_app()
+        }
+        binding.profil6.callBtn.setOnClickListener {
+            call_app()
+        }
         binding.myRelative.setOnClickListener {
             startActivity(Intent(requireActivity(), DoctorListActivity::class.java))
         }
@@ -91,13 +101,25 @@ class HomeFragment : Fragment() {
         binding.profil3.nameDoctor.setText("Dr kasongo Mardocher")
         binding.profil3.fonction.setText("Pédiatre")
         binding.profil2.fonction.setText("Gynécologue")
-        binding.profil1.imageDoctor
+        binding.profil4.fonction.setText("Urologue")
+        binding.profil4.nameDoctor.setText("Dr Ruth Mutomb")
+        binding.profil5.fonction.setText("Pneumologue")
+        binding.profil5.nameDoctor.setText("Dr Malothy Mulimbi")
+        binding.profil6.fonction.setText("Orthopédiste")
+        binding.profil6.nameDoctor.setText("Dr Christelle Mwanza")
+
         val img1 = "https://img.freepik.com/free-photo/front-view-smiley-man-with-thumb-up_23-2149633839.jpg?size=626&ext=jpg&uid=R68904716&ga=GA1.2.2069144117.1673200892&semt=ais"
         val img2 = "https://img.freepik.com/free-photo/cheerful-ethnic-doctor-with-arms-crossed_23-2147767333.jpg?size=626&ext=jpg&uid=R68904716&ga=GA1.2.2069144117.1673200892&semt=ais"
         val img3 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY_7p_DzGReXjLWefuP6fwSpEaO3Bvlhntbg&usqp=CAU"
+        val img4 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWrc-0EvJkAEZgYeGZs0_cjVjO6TOb3BQzyQ&usqp=CAU"
+        val img5 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTVkSYqfdBOQf4aSK2JgJ5NUEsnQpdqRYMXQ&usqp=CAU"
+        val img6 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZS5KKp3cMPzebgw4NQWbr2UzAV2jezj34Yg&usqp=CAU"
         yglide(img1,binding.profil1.imageDoctor)
         yglide(img2,binding.profil2.imageDoctor)
         yglide(img3,binding.profil3.imageDoctor)
+        yglide(img4,binding.profil4.imageDoctor)
+        yglide(img5,binding.profil5.imageDoctor)
+        yglide(img6,binding.profil6.imageDoctor)
 
 
         val circularProgressDrawable = CircularProgressDrawable(requireActivity())
@@ -132,26 +154,20 @@ class HomeFragment : Fragment() {
     }
 
     fun getSpeciality() {
-        val database = FirebaseDatabase.getInstance()
-        database.getReference(DATA.special)
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    list!!.clear()
-                    for (data in snapshot.children) {
-                        val model = data.getValue(specialite::class.java)
-                        list!!.add(model)
-                    }
+        val database = FirebaseFirestore.getInstance()
+        database.collection(DATA.special)
+            .get()
+            .addOnSuccessListener {
+                list!!.clear()
+                for (document in it.documents){
+                    val domaine = document.toObject(specialite::class.java)
+                    list!!.add(domaine)
                     adapter!!.notifyDataSetChanged()
-                    // binding.progressBar.visibility = View.GONE
-
                 }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                if (list!!.isNotEmpty()){
+                    binding.circularLoader.visibility = View.GONE
                 }
-
-
-            })
+            }
 
     }
 
@@ -191,5 +207,7 @@ class HomeFragment : Fragment() {
             .load(load)
             .into(view)
     }
+
+
 
 }

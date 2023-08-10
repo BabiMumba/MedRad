@@ -42,6 +42,7 @@ class DoctorAdapter(context: Context) : RecyclerView.Adapter<DoctorAdapter.UserV
         var profil = binding.profilDoctor
         var experiance = binding.experiance
         var degree = binding.degree
+        var specilter = binding.specialite
         val call_btn = binding.contactBtn
 
 
@@ -65,9 +66,10 @@ class DoctorAdapter(context: Context) : RecyclerView.Adapter<DoctorAdapter.UserV
         circularProgressDrawable.start()
         //holder.nameTextView.text = currentUser!!.domaine
         holder.nom.text = currentUser!!.nom
-        holder.degree.text = currentUser!!.degree
+        holder.degree.text = "Degree: ${currentUser.degree}"
         holder.experiance.text = "${currentUser.experiance} ans d'exp"
-        holder.langue.text = currentUser!!.langue
+        holder.langue.text = "Langue: ${currentUser.langue}"
+        holder.specilter.text = "Specialité: ${currentUser.specialite}"
 
         // Utilisez votre bibliothèque de chargement d'images préférée pour charger l'image à partir du lien ici
 

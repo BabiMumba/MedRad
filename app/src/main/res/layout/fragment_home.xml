@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:background="@color/card_background"
                 android:id="@+id/relativeprofil"
@@ -65,15 +66,6 @@
                         android:textStyle="bold"
                         />
                 </LinearLayout>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:background="@color/card_background"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
             </RelativeLayout>
         </LinearLayout>
 
@@ -122,6 +114,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
 
                     />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,14 +124,38 @@
                     android:text="Trouver un specialiste par domaine"
                     android:layout_marginStart="@dimen/_10sdp"
                     />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/special_id"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:itemCount="1"
-                    tools:listitem="@layout/specialitse_item"
-                    />
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/circular_loader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:layout_marginEnd="@dimen/_40sdp"
+                        android:layout_marginBottom="@dimen/_40sdp"
+                        android:indeterminate="true"
+                        app:indicatorColor="@color/primary"
+                        app:indicatorDirectionCircular="clockwise"
+                        app:trackColor="@color/white"
+                        app:trackThickness="6dp" />
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        app:reverseLayout="true"
+                        app:stackFromEnd="true"
+                        android:layout_below="@id/circular_loader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/special_id"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/specialitse_item"
+                        />
+                </RelativeLayout>
 
             </LinearLayout>
             <androidx.cardview.widget.CardView
@@ -223,6 +240,30 @@
                     />
                 <include
                     android:id="@+id/profil_3"
+                    layout="@layout/doctor_item"
+                    />
+            </LinearLayout>
+        </HorizontalScrollView>
+            <HorizontalScrollView
+            android:layout_marginTop="@dimen/_10ssp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <include
+                    android:id="@+id/profil4"
+                    layout="@layout/doctor_item"
+                    />
+                <include
+                    android:id="@+id/profil5"
+                    layout="@layout/doctor_item"
+                    />
+                <include
+                    android:id="@+id/profil6"
                     layout="@layout/doctor_item"
                     />
             </LinearLayout>

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import cd.babitech.medrad.Activity.AddApointActivity
 import cd.babitech.medrad.Activity.AddSpecialityActivity
+import cd.babitech.medrad.Activity.DoctorListActivity
 import cd.babitech.medrad.Auth.doctor.RegisterDoctActivity
 import cd.babitech.medrad.Fragment.HomeFragment
 import cd.babitech.medrad.Fragment.MenuFragment
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.selectedItemId = R.id.homeMenu
 
         findViewById<FloatingActionButton>(R.id.floating_button).setOnClickListener {
-            startActivity(Intent(this, RegisterDoctActivity::class.java))
+            startActivity(Intent(this, DoctorListActivity::class.java))
 
         }
 
@@ -44,10 +45,12 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.homeMenu -> {
                     fragment = HomeFragment()
+                    binding.myToolbar.idTitre.setText("Accueil")
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.apoint -> {
+                    binding.myToolbar.idTitre.setText("Rendez-Vous")
                     fragment = RendezVFragment()
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true
@@ -55,9 +58,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.profileMenu -> {
                     fragment = ProfilFragment()
                     loadFragment(fragment)
+                    binding.myToolbar.idTitre.setText("Profile")
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.more -> {
+                    binding.myToolbar.idTitre.setText("Plus")
                     fragment = MenuFragment()
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true

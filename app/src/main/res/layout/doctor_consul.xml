@@ -69,6 +69,13 @@
                     android:textColor="@color/primary_text"
                     android:text="Langue:francais,anglais"
                     />
+                <TextView
+                    android:id="@+id/specialite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:text="Specialité:Cardiologue"
+                    />
 
             </LinearLayout>
             <RatingBar

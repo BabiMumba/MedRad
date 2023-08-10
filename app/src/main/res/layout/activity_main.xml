@@ -5,13 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/toolbar_top"
+        android:id="@+id/my_toolbar"
+        />
     <FrameLayout
         android:background="@color/white"
         android:id="@+id/nav_fragment"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/my_toolbar"
         android:layout_height="0dp"
         android:layout_above="@+id/parent_layout">
 

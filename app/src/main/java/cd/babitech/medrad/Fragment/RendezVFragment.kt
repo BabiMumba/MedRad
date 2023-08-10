@@ -39,33 +39,19 @@ class RendezVFragment : Fragment() {
     fun getdata(){
         fstore = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
-        fstore.collection(DATA.rendeVous).get().addOnSuccessListener {
+        fstore.collection(DATA.rendeVous)
+            .whereEqualTo("id_user",DATA.id_user)
+            .orderBy("date_env")
+            .get()
+            .addOnSuccessListener {
             if (!it.isEmpty){
                 val liste_rendev = it.documents
-                for(i in liste_rendev){
-                    if (i.id== DATA.id_user){
-                        val  rende = rende_vous(i.getString("date_rendev").toString(),
-                            i.getString("nom_docteur").toString(),
-                            i.getString("domaine").toString(),
-                            i.getString("domaine").toString(),
-                        )
-                        contactInfo.add(rende)
-                        rendeAdapter= RendezAdapter(contactInfo)
-                        binding.mayRendevz.adapter = rendeAdapter
-                        binding.mayRendevz.layoutManager = LinearLayoutManager(requireActivity())
-
-
-                    }else{
-                       /* val contact = rende_vous(i.getString("date_rendev").toString(),
-                            i.getString("userEmail").toString(),
-                            i.getString("userStatus").toString(),
-                            i.getString("userProfilePhoto").toString(),
-                            i.getString("uid").toString())
-                        contactInfo.add(contact)
-                        chatsAdapter = ChatsAdapter(context as Activity,contactInfo)
-                        rvContact.adapter = chatsAdapter
-                        rvContact.layoutManager = LinearLayoutManager(context)
-  */                  }
+                for(i in liste_rendev) {
+                    val model = i.toObject(rende_vous::class.java)!!
+                    contactInfo.add(model)
+                    rendeAdapter = RendezAdapter(contactInfo)
+                    binding.mayRendevz.adapter = rendeAdapter
+                    binding.mayRendevz.layoutManager = LinearLayoutManager(requireActivity())
                 }
             }
         }
