@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <RelativeLayout
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -31,11 +32,12 @@
                     android:layout_marginBottom="@dimen/_5sdp"
                     >
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:padding="@dimen/_2sdp"
                         app:civ_border_color="@color/Accent"
                         app:civ_border_width="@dimen/_2sdp"
                         android:layout_width="@dimen/_80sdp"
                         android:layout_height="@dimen/_80sdp"
-                        android:src="@drawable/black"
+                        android:src="@drawable/avatar_user"
                         android:id="@+id/image_profil"
                         android:scaleType="centerCrop"
                         />

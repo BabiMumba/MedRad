@@ -10,13 +10,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-       /*// val database = FirebaseDatabase.getInstance()
-        //affichage hors connexion
-       // database.setPersistenceEnabled(true)*/
-      //  val database = FirebaseDatabase.getInstance()
-        //hors connexion
-
-        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     companion object {

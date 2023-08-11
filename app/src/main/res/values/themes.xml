@@ -13,7 +13,9 @@
 
     </style>
 
-    <style name="Theme.MedRad" parent="Base.Theme.MedRad" />
+    <style name="Theme.MedRad" parent="Base.Theme.MedRad"
+
+        />
     <style name="MyCustomActivityAnimation"
         parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">

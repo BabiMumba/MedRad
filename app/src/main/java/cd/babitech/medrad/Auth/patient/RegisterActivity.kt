@@ -63,7 +63,8 @@ class RegisterActivity : AppCompatActivity() {
         val date_dins = sdf.format(Date()).toString()
         val firestore = FirebaseFirestore.getInstance()
         val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
-        val user = User(firstName,email,number,password,Calendar.getInstance().time.toString(),"")
+        val profil = "https://e7.pngegg.com/pngimages/340/946/png-clipart-avatar-user-computer-icons-software-developer-avatar-child-face.png"
+        val user = User(firstName,email,number,password,Calendar.getInstance().time.toString(),profil)
         userDocument.set(user)
             .addOnSuccessListener {
                 val user = user

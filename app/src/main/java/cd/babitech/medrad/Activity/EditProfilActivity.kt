@@ -3,6 +3,7 @@ package cd.babitech.medrad.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,9 +18,14 @@ import cd.babitech.medrad.Unit.Void
 import cd.babitech.medrad.databinding.ActivityEditProfilBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.google.firebase.storage.StorageReference
 import java.util.Calendar
 
 class EditProfilActivity : AppCompatActivity() {
+    var filepath: Uri? = null
+    var ex_path:Uri? = null
+    var lien_image:String = ""
+    private lateinit var storageReference: StorageReference
     lateinit var binding: ActivityEditProfilBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +38,13 @@ class EditProfilActivity : AppCompatActivity() {
             onBackPressed()
         }
         binding.toolbar.titreTopBar.setText("Modifier votre compte")
+        binding.pickProfilTxt.setOnClickListener {
+            Void.pick_image(this,512,512,2000)
+        }
 
         binding.btnNextSave.setOnClickListener {
             updatedata(
-                binding.name.text.toString(),
+                binding.mail.text.toString(),
                 binding.name.text.toString(),
                 "",
                 binding.numberPhone.text.toString(),
@@ -49,10 +58,12 @@ class EditProfilActivity : AppCompatActivity() {
         val numero  = sharedPreferences.getString(DATA.numero,"").toString()
         val mail  = sharedPreferences.getString(DATA.mail,"").toString()
         val adresse  = sharedPreferences.getString(DATA.adresse,"").toString()
+        val profil  = sharedPreferences.getString(DATA.profil,"").toString()
         binding.name.setText(nom)
         binding.numberPhone.setText(numero)
         binding.mail.setText(mail)
         binding.adresse.setText(adresse)
+
 
     }
 
@@ -77,6 +88,17 @@ class EditProfilActivity : AppCompatActivity() {
                 Log.d("FAILED","Erreur de connexion : ${it.message}")
             }
 
+    }
+    //on activity result
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val imageUri : Uri
+        if (requestCode == 101 && resultCode == RESULT_OK) {
+            imageUri = data?.data!!
+            filepath = data.data!!
+            binding.imageProfil.setImageURI(imageUri)
+            binding.pickProfilTxt.visibility = View.GONE
+        }
     }
     fun save_share(user: User){
         val sharedPreferences = this.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)

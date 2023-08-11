@@ -6,5 +6,6 @@ data class User(
     val numero: String = "",
     val password: String = "",
     val date: String = "",
-    val address: String = ""
+    val address: String = "",
+    val profil: String = ""
 )
