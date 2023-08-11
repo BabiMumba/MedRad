@@ -20,8 +20,8 @@ class RendezVFragment : Fragment() {
     private val contactInfo = arrayListOf<rende_vous>()
     private lateinit var fstore : FirebaseFirestore
     private lateinit var auth : FirebaseAuth
-    private lateinit var rvContact : RecyclerView
     private lateinit var rendeAdapter : RendezAdapter
+    lateinit var linearLayoutManager: LinearLayoutManager
 
     lateinit var binding: FragmentRendezVBinding
     override fun onCreateView(
@@ -30,6 +30,15 @@ class RendezVFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentRendezVBinding.inflate(layoutInflater)
+
+
+        binding.mayRendevz.apply {
+            linearLayoutManager = LinearLayoutManager(requireActivity())
+            linearLayoutManager.reverseLayout = true
+            linearLayoutManager.onSaveInstanceState()
+            linearLayoutManager.stackFromEnd = true
+            layoutManager = linearLayoutManager
+        }
 
         getdata()
         binding.suipe.setOnRefreshListener {
@@ -56,6 +65,8 @@ class RendezVFragment : Fragment() {
                     rendeAdapter = RendezAdapter(contactInfo)
 
                 }
+                binding.mayRendevz.adapter = rendeAdapter
+
                 if (contactInfo.isEmpty()){
                     Glide.with(this).asGif().load(R.raw.vide).into(binding.emptyListe)
                     binding.progressItem.loaderFrameLayout.visibility = View.GONE
@@ -63,9 +74,9 @@ class RendezVFragment : Fragment() {
                 }else{
                     binding.progressItem.loaderFrameLayout.visibility = View.GONE
                 }
-                binding.mayRendevz.adapter = rendeAdapter
-                binding.mayRendevz.layoutManager = LinearLayoutManager(requireActivity())
-                rendeAdapter.notifyDataSetChanged()
+
+               // binding.mayRendevz.layoutManager = LinearLayoutManager(requireActivity())
+               // rendeAdapter.notifyDataSetChanged()
             }
         }
     }
