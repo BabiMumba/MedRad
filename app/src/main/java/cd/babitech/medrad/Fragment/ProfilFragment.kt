@@ -17,6 +17,7 @@ import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
 import cd.babitech.medrad.databinding.FragmentProfilBinding
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import java.util.Calendar
@@ -51,48 +52,22 @@ class ProfilFragment : Fragment() {
         val numero  = sharedPreferences.getString(DATA.numero,"").toString()
         val mail  = sharedPreferences.getString(DATA.mail,"").toString()
         val adresse  = sharedPreferences.getString(DATA.adresse,"").toString()
+        val profil  = sharedPreferences.getString(DATA.profil,null).toString()
+
         binding.nameUser.setText(nom)
         binding.mailUser.setText(mail)
         binding.numeberUser.setText(numero)
         binding.adresse.setText(adresse)
 
-    }
-
-    /*fun updatedata(email: String, firstName: String,password: String,number: String,adress:String){
-        Void.loading(true,binding.progressBar,binding.btnNext)
-        val firestore = FirebaseFirestore.getInstance()
-        val user = User(firstName,email,number,password, Calendar.getInstance().time.toString(),adress)
-        val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
-        userDocument.set(user, SetOptions.merge())
-            .addOnSuccessListener {
-                val user = user
-                // Enregistrement réussi
-                Void.loading(false,binding.progressBar,binding.btnNext)
-                Void.toas(requireActivity(),"Compte modifie")
-                save_share(user)
-
-            }
-            .addOnFailureListener {
-                Void.loading(false,binding.progressBar,binding.btnNext)
-                // Erreur lors de l'enregistrement
-                Log.d("FAILED","Erreur de connexion : ${it.message}")
-            }
-
-    }*/
-    fun save_share(user: User){
-        val sharedPreferences = requireActivity().getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        if (user != null) {
-            val editor = sharedPreferences.edit()
-            editor.putString("nom", user.nom)
-            editor.putString("mail", user.mail)
-            editor.putString("numero", user.numero)
-            editor.putString(DATA.adresse, user.address)
-            editor.apply()
+        if (profil!=null){
+            Glide
+                .with(this)
+                .load(profil)
+                .centerInside()
+                .into(binding.profilImage)
         }
 
     }
-
     override fun onResume() {
         getdata()
         super.onResume()

@@ -92,7 +92,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_2sdp"
-                            android:text="Hopital:Gecamine sud"
+                            android:text="Hopital: Gecamine sud"
                             android:textColor="@color/primary_text"
                             android:textSize="@dimen/_13ssp"
                             android:textStyle="normal" />
@@ -135,6 +135,7 @@
                             app:tint="@color/secondary_text" />
 
                         <TextView
+                            android:id="@+id/experiance_doc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_2sdp"

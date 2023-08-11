@@ -23,7 +23,7 @@
         android:layout_width="@dimen/_70sdp"
         android:layout_height="@dimen/_70sdp"
         android:layout_marginTop="@dimen/_20ssp"
-        android:src="@drawable/black"
+        android:src="@drawable/avatar_user"
         app:civ_border_color="@color/primary"
         app:civ_border_width="@dimen/_2sdp"
         app:layout_constraintBottom_toBottomOf="@+id/view"

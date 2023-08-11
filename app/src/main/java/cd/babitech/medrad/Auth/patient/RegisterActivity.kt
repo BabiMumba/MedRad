@@ -63,8 +63,8 @@ class RegisterActivity : AppCompatActivity() {
         val date_dins = sdf.format(Date()).toString()
         val firestore = FirebaseFirestore.getInstance()
         val userDocument = firestore.collection(DATA.user).document(DATA.id_user)
-        val profil = "https://e7.pngegg.com/pngimages/340/946/png-clipart-avatar-user-computer-icons-software-developer-avatar-child-face.png"
-        val user = User(firstName,email,number,password,Calendar.getInstance().time.toString(),profil)
+        val profil = "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
+        val user = User(firstName,email,number,password,Calendar.getInstance().time.toString(),"",profil)
         userDocument.set(user)
             .addOnSuccessListener {
                 val user = user
@@ -89,6 +89,7 @@ class RegisterActivity : AppCompatActivity() {
             editor.putString("nom", user.nom)
             editor.putString("mail", user.mail)
             editor.putString("numero", user.numero)
+            editor.putString(DATA.profil, user.profil)
             editor.apply()
             Void.loading(false,binding.progressBar,binding.loginBtn)
             Void.Intent_page(this,MainActivity::class.java)

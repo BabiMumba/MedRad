@@ -88,6 +88,7 @@ class DoctorAdapter(context: Context) : RecyclerView.Adapter<DoctorAdapter.UserV
             intent.putExtra("numero",currentUser.numero)
             intent.putExtra("categorie",currentUser.specialite)
             intent.putExtra("degree",currentUser.degree)
+            intent.putExtra("experiance",currentUser.experiance)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             holder.itemView.context.startActivity(intent)
 

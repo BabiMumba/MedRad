@@ -10,7 +10,7 @@
     tools:context=".Activity.AddApointActivity">
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_70sdp"
+        android:layout_height="@dimen/_50sdp"
         android:background="@color/Accent"
         />
 

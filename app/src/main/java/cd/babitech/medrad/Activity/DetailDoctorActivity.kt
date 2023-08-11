@@ -52,15 +52,18 @@ class DetailDoctorActivity : AppCompatActivity() {
         val image_profil = intent.getStringExtra("profil").toString()
         val categorie = intent.getStringExtra("categorie").toString()
         val degree = intent.getStringExtra("degree")
+        val exeperiance = intent.getStringExtra("experiance")
 
         if (doctor_id!=null || doctor_id!=""){
             Toast.makeText(this, "$doctor_id", Toast.LENGTH_SHORT).show()
             binding.nameDoctor.text = "$nom_doctor"
+            binding.toolbar.titreTopBar.text = "$nom_doctor"
             Glide
                 .with(this)
                 .load(image_profil)
                 .into(binding.profilDoctor)
             binding.categorie.text = "Categorie: $categorie"
+            binding.experianceDoc.text = "Experiance: $exeperiance ans"
 
 
         }else{

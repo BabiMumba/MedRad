@@ -15,9 +15,13 @@ import cd.babitech.medrad.Fragment.HomeFragment
 import cd.babitech.medrad.Fragment.MenuFragment
 import cd.babitech.medrad.Fragment.ProfilFragment
 import cd.babitech.medrad.Fragment.RendezVFragment
+import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.databinding.ActivityMainBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import io.grpc.Context
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -26,12 +30,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        getdata()
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottomNavigationView.selectedItemId = R.id.homeMenu
         binding.myToolbar.notifIc.setOnClickListener {
             startActivity(Intent(this, NotificationActivity::class.java))
         }
+
         findViewById<FloatingActionButton>(R.id.floating_button).setOnClickListener {
             startActivity(Intent(this, DoctorListActivity::class.java))
 
@@ -88,6 +95,20 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         finish()
         //super.onBackPressed()
+    }
+    fun getdata(){
+        val sharedPreferences = getSharedPreferences(DATA.PREF_NAME, MODE_PRIVATE)
+         val profil = sharedPreferences.getString(DATA.profil,null)
+        if (profil!=null){
+            Glide
+                .with(this)
+                .load(profil)
+                .centerInside()
+                .into(binding.myToolbar.myProfil)
+
+
+        }
+
     }
 
 }
