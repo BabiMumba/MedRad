@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroud"
+    android:background="@color/white"
     tools:context=".Activity.AddApointActivity">
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_alignParentTop="true"
@@ -22,6 +22,7 @@
                 android:id="@+id/progress_item"
                 layout="@layout/progress_item"
                 />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,13 +30,31 @@
                 tools:listitem="@layout/item_rendez_vous"
                 android:id="@+id/may_rendevz"
                 />
-            <ImageView
+
+            <LinearLayout
                 android:visibility="gone"
-                android:layout_width="@dimen/_200sdp"
-                android:layout_height="@dimen/_200sdp"
                 android:layout_centerInParent="true"
-                android:id="@+id/empty_liste"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/state_liste"
+                >
+                <ImageView
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="@dimen/_200sdp"
+                    android:id="@+id/empty_liste"
+                    />
+                <TextView
+                    android:layout_gravity="center"
+                    android:textColor="@color/secondary_text"
+                    android:textStyle="normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vous n'avez aucun rendez-vous"
+                    />
+
+            </LinearLayout>
+
         </RelativeLayout>
 
 
