@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.window.SplashScreen
+import cd.babitech.medrad.Activity.AboutDeveloppeur
 import cd.babitech.medrad.Activity.AddSpecialityActivity
 import cd.babitech.medrad.Activity.SplashActivity
 import cd.babitech.medrad.Auth.doctor.RegisterDoctActivity
@@ -55,6 +56,9 @@ class MenuFragment : Fragment() {
         }
         binding.addDomaine.setOnClickListener {
             startActivity(Intent(requireActivity(),AddSpecialityActivity::class.java))
+        }
+        binding.aboutMe.setOnClickListener {
+            startActivity(Intent(requireActivity(),AboutDeveloppeur::class.java))
         }
 
         return binding.root
