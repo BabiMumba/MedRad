@@ -51,14 +51,62 @@
             />
     </LinearLayout>
 
+    <ProgressBar
+        android:visibility="gone"
+       android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progress_bar"
+        />
 
+    <com.google.android.material.card.MaterialCardView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/login_btn"
+        android:background="@color/primary"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:padding="@dimen/_5sdp"
+            android:background="@color/primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/google" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connectez-vous avec Google"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.button.MaterialButton
+        android:visibility="gone"
         android:id="@+id/btn_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:backgroundTint="@color/primary"
         android:padding="@dimen/_10sdp"
         android:text="Commencer"

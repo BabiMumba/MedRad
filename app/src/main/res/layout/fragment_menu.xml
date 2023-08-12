@@ -8,6 +8,7 @@
     android:background="@color/backgroud"
     android:orientation="vertical"
     tools:context=".Activity.AddApointActivity">
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
@@ -146,7 +147,6 @@
 
             </RelativeLayout>
             <RelativeLayout
-                android:visibility="gone"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:id="@+id/add_doctor_new"
                 android:background="@color/card_background"
@@ -172,8 +172,6 @@
                     android:textColor="@color/primary_text"
                     android:textStyle="bold"
                     />
-
-
 
             </RelativeLayout>
             <RelativeLayout

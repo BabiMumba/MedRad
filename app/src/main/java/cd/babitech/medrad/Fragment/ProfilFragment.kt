@@ -58,7 +58,7 @@ class ProfilFragment : Fragment() {
         binding.mailUser.setText(mail)
         binding.numeberUser.setText(numero)
         binding.adresse.setText(adresse)
-        binding.pasword.setText(DATA.id_user)
+      //  binding.pasword.setText(DATA.id_user)
 
         Glide
             .with(this)
