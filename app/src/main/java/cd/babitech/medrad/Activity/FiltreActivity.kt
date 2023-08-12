@@ -22,6 +22,7 @@ class FiltreActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val type = intent.getStringExtra("type")
+        binding.toolbar.titreTopBar.text = type
         adapter = DoctorAdapter(this)
         binding.doctorListeItem.adapter = adapter
         getdoctor(type!!)
@@ -47,6 +48,7 @@ class FiltreActivity : AppCompatActivity() {
                             list!!.add(model!!)
                         }
                     }
+                    binding.toolbar.titreTopBar.text = "$type(${list.size})"
                     adapter!!.items= list
                     adapter!!.notifyDataSetChanged()
                     // binding.progressBar.visibility = View.GONE
