@@ -37,8 +37,14 @@ cette application offre une solution numérique qui permet aux utilisateurs de p
     |
     └── Fragment            #les fragments utiliser
 
-## Capture d'ecran
+## Capture d'ecran(version 1.0.0)
 ![sol2](https://github.com/BabiMumba/MedRad/assets/104514894/481619fa-56b3-42ef-8943-3864c0cea8f5)
+
+## Capture d'ecran(version 1.0.2)
+![banner_principale](https://github.com/BabiMumba/MedRad/assets/104514894/0ed905ca-f1ec-4e36-9382-6f4f7494fb0b)
+
+![banne_pr](https://github.com/BabiMumba/MedRad/assets/104514894/9b01974f-4511-45a9-b995-e2e95bfb30c1)
+
 
 
 
