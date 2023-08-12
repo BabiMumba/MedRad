@@ -25,6 +25,7 @@
             >
 
             <RelativeLayout
+                android:layout_marginTop="@dimen/_2sdp"
                 android:background="@color/card_background"
                 android:padding="@dimen/_10sdp"
                 android:layout_width="match_parent"
@@ -53,6 +54,7 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:layout_marginTop="@dimen/_2sdp"
                 android:background="@color/card_background"
                 android:padding="@dimen/_10sdp"
                 android:layout_width="match_parent"
@@ -81,6 +83,7 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:layout_marginTop="@dimen/_2sdp"
                 android:id="@+id/add_domaine"
                 android:background="@color/card_background"
                 android:padding="@dimen/_10sdp"
@@ -110,6 +113,7 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:layout_marginTop="@dimen/_2sdp"
                 android:id="@+id/add_doctor_new"
                 android:background="@color/card_background"
                 android:padding="@dimen/_10sdp"
@@ -139,6 +143,7 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:layout_marginTop="@dimen/_2sdp"
                 android:id="@+id/logOut"
                 android:background="@color/card_background"
                 android:padding="@dimen/_10sdp"

@@ -67,21 +67,17 @@ class RendezVFragment : Fragment() {
                     }
                     rendeAdapter = RendezAdapter(liste_rendev_v)
                     rendeAdapter.notifyDataSetChanged()
-
                 }
                 binding.mayRendevz.adapter = rendeAdapter
 
                // Void.toas(requireActivity(),"${liste_rendev_v.size}")
                 if (liste_rendev_v.size<=0){
-                    Glide.with(this).asGif().load(R.raw.vide).into(binding.emptyListe)
+                    Glide.with(this).asGif().load(R.raw.empty_cal).into(binding.emptyListe)
                     binding.progressItem.loaderFrameLayout.visibility = View.GONE
                     binding.stateListe.visibility = View.VISIBLE
                 }else{
                     binding.progressItem.loaderFrameLayout.visibility = View.GONE
                 }
-
-               // binding.mayRendevz.layoutManager = LinearLayoutManager(requireActivity())
-               // rendeAdapter.notifyDataSetChanged()
             }
         }
     }

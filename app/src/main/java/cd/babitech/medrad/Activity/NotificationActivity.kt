@@ -17,7 +17,7 @@ class NotificationActivity : AppCompatActivity() {
         binding = ActivityNotificationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Glide.with(this).asGif().load(R.raw.vide).into(binding.emptyListe)
+        Glide.with(this).asGif().load(R.raw.notificati).into(binding.emptyListe)
         binding.toto.ivBack.setOnClickListener {
             onBackPressed()
         }

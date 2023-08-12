@@ -10,14 +10,12 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
-import cd.babitech.medrad.Fragment.HomeFragment
 import cd.babitech.medrad.Model.rende_vous
 import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
@@ -34,7 +32,6 @@ import com.karumi.dexter.listener.single.PermissionListener
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
-import java.util.Locale
 
 class DetailDoctorActivity : AppCompatActivity() {
     private var selectedDate: Calendar = Calendar.getInstance()
@@ -163,7 +160,10 @@ class DetailDoctorActivity : AppCompatActivity() {
         mRef.set(rendezvous)
             .addOnSuccessListener {
                 Void.loading(false,binding.progressBar,binding.rendezBtn)
-                Void.toas(this,"Rendez-vous ajouter")
+                val file = R.raw.confirm_calendar
+               // Void.toas(this,"Rendez-vous ajouter")
+                val message= "Rendez-vous ajouter"
+                Void.succes_app(this,file,message)
             }
             .addOnFailureListener {
                 Void.loading(false,binding.progressBar,binding.rendezBtn)
@@ -172,37 +172,4 @@ class DetailDoctorActivity : AppCompatActivity() {
             }
 
     }
-
-
-    // Fonction pour afficher la boîte de dialogue pour choisir la date
-    fun selectDate(context: Context, button: Button) {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
-
-        val datePickerDialog = DatePickerDialog(context, DatePickerDialog.OnDateSetListener { _, pickedYear, pickedMonth, pickedDay ->
-            val formattedDate = String.format("%02d/%02d/%d", pickedDay, pickedMonth + 1, pickedYear)
-            button.text = formattedDate
-        }, year, month, dayOfMonth)
-
-        // Afficher le calendrier à partir d'aujourd'hui
-        datePickerDialog.datePicker.minDate = calendar.timeInMillis
-        datePickerDialog.show()
-    }
-
-    // Fonction pour afficher la boîte de dialogue pour choisir l'heure
-    fun selectTime(context: Context, button: Button) {
-        val calendar = Calendar.getInstance()
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
-
-        val timePickerDialog = TimePickerDialog(context, TimePickerDialog.OnTimeSetListener { _, pickedHour, pickedMinute ->
-            val formattedTime = String.format("%02d:%02d", pickedHour, pickedMinute)
-            button.text = formattedTime
-        }, hour, minute, true)
-
-        timePickerDialog.show()
-    }
-
 }

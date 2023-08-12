@@ -16,6 +16,7 @@ import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.Unit.Void
 import cd.babitech.medrad.databinding.ActivityEditProfilBinding
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.StorageReference
@@ -38,9 +39,6 @@ class EditProfilActivity : AppCompatActivity() {
             onBackPressed()
         }
         binding.toolbar.titreTopBar.setText("Modifier votre compte")
-        binding.pickProfilTxt.setOnClickListener {
-            Void.pick_image(this,512,512,2000)
-        }
 
         binding.btnNextSave.setOnClickListener {
             updatedata(
@@ -63,6 +61,15 @@ class EditProfilActivity : AppCompatActivity() {
         binding.numberPhone.setText(numero)
         binding.mail.setText(mail)
         binding.adresse.setText(adresse)
+        if (profil!=null){
+            Glide
+                .with(this)
+                .load(profil)
+                .centerInside()
+                .into(binding.imageProfil)
+
+
+        }
 
 
     }
@@ -90,16 +97,6 @@ class EditProfilActivity : AppCompatActivity() {
 
     }
     //on activity result
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val imageUri : Uri
-        if (requestCode == 101 && resultCode == RESULT_OK) {
-            imageUri = data?.data!!
-            filepath = data.data!!
-            binding.imageProfil.setImageURI(imageUri)
-            binding.pickProfilTxt.visibility = View.GONE
-        }
-    }
     fun save_share(user: User){
         val sharedPreferences = this.getSharedPreferences(DATA.PREF_NAME, AppCompatActivity.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

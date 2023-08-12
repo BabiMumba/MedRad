@@ -54,7 +54,8 @@ class RendezAdapter(var userList: ArrayList<rende_vous>) : RecyclerView.Adapter<
             .into(holder.imageView)
 
         holder.delete_btn.setOnClickListener {
-            val dialogue = AlertDialog.Builder(holder.itemView.context)
+            val context= holder.itemView.context
+            val dialogue = AlertDialog.Builder(context)
             dialogue.setTitle("Suppression Rendez-Vous")
             dialogue.setMessage("Etes-vous sur de vouloir supprimer le Rendez-vous")
             dialogue.setPositiveButton("Supprimer"){ _, _ ->
@@ -63,7 +64,12 @@ class RendezAdapter(var userList: ArrayList<rende_vous>) : RecyclerView.Adapter<
                     .document(DATA.id_user+currentUser.id_rens)
                     .delete()
                     .addOnSuccessListener {
-                        Void.toas(holder.itemView.context,"Rendez-vous Supprimer\nRafraîchissez la liste en poussant vers le bas pour voir le changement.")
+                        val file = R.raw.delete_g
+                        // Void.toas(this,"Rendez-vous ajouter")
+                        val message= "Rendez-vous Supprimer\n" +
+                                "Rafraîchissez la liste en poussant vers le bas pour voir le changement."
+                        Void.succes_app(context,file,message)
+                       // Void.toas(holder.itemView.context,"Rendez-vous Supprimer\nRafraîchissez la liste en poussant vers le bas pour voir le changement.")
                     }
                     .addOnFailureListener {
                         Void.toas(holder.itemView.context,"Erreur:${it.message}")
