@@ -4,11 +4,11 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.window.SplashScreen
+import androidx.fragment.app.Fragment
 import cd.babitech.medrad.Activity.AboutDeveloppeur
 import cd.babitech.medrad.Activity.AddSpecialityActivity
 import cd.babitech.medrad.Activity.SplashActivity
@@ -17,9 +17,14 @@ import cd.babitech.medrad.Auth.doctor.RegisterDoctActivity
 import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
 import cd.babitech.medrad.databinding.FragmentMenuBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
 
 class MenuFragment : Fragment() {
 
+    lateinit var auth: FirebaseAuth
     lateinit var binding: FragmentMenuBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +33,7 @@ class MenuFragment : Fragment() {
         binding = FragmentMenuBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
 
+        auth = Firebase.auth
         binding.addDoctorNew.setOnClickListener {
             startActivity(Intent(requireActivity(),RegisterDoctActivity::class.java))
         }
@@ -39,10 +45,12 @@ class MenuFragment : Fragment() {
             dialogue.setMessage("Voulez-vous vraiment vous deconnecter ?")
             dialogue.setPositiveButton("Oui") { dialog, which ->
                 //deconnexion
+                /*val prefs = PreferenceManager.getDefaultSharedPreferences(this@Login)
+                val editor = prefs.edit()*/
                 val editor = requireActivity().getSharedPreferences(DATA.PREF_NAME, Context.MODE_PRIVATE).edit()
                 editor.clear()
                 editor.apply()
-                DATA.AUTH.signOut()
+                auth.signOut()
                 startActivity(Intent(requireActivity(),SplashActivity::class.java)
                 )
 

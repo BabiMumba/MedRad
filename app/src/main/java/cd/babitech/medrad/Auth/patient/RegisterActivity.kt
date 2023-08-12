@@ -104,13 +104,13 @@ class RegisterActivity : AppCompatActivity() {
             Void.toas(this, "Votre mail")
             false
         }  else if (binding.numberPhone.text.toString().isEmpty()) {
-            Void.toas(this, "votre numero")
+            Void.toas(this, "votre numero de telephone")
             false
         }else if (binding.password.text.length < 6 || binding.name.text.isEmpty()) {
-            Void.toas(this, "mot de passe incomplet caractere min 6")
+            Void.toas(this, "Verifiez votre mot de passe caractere min 6")
             false
         }else if (binding.passwordConfirm.text.isEmpty()) {
-            Void.toas(this, "confirmer votre mot de passe")
+            Void.toas(this, "Confirmer votre mot de passe")
             false
         } else if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
             Void.toas(this, "mot de passe different")

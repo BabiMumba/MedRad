@@ -84,7 +84,8 @@
                     android:hint="numero de tel"
                     >
                     <EditText
-                        android:digits="9"
+                        android:maxEms="9"
+                        android:maxLength="9"
                         android:imeOptions="actionNext"
                         android:textColor="@color/primary_text"
                         android:inputType="phone"

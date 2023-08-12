@@ -58,14 +58,13 @@ class ProfilFragment : Fragment() {
         binding.mailUser.setText(mail)
         binding.numeberUser.setText(numero)
         binding.adresse.setText(adresse)
+        binding.pasword.setText(DATA.id_user)
 
-        if (profil!=null){
-            Glide
-                .with(this)
-                .load(profil)
-                .centerInside()
-                .into(binding.profilImage)
-        }
+        Glide
+            .with(this)
+            .load(profil)
+            .centerInside()
+            .into(binding.profilImage)
 
     }
     override fun onResume() {

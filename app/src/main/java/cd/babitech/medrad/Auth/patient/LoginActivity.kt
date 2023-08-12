@@ -82,6 +82,7 @@ class LoginActivity : AppCompatActivity() {
             editor.putString("nom", user.nom)
             editor.putString("mail", user.mail)
             editor.putString("numero", user.numero)
+            editor.putString(DATA.profil, user.profil)
             editor.apply()
             Void.loading(false,binding.progressBar,binding.loginBtn)
             Void.Intent_page(this,MainActivity::class.java)

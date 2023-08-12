@@ -105,6 +105,7 @@
                 android:textColor="@color/grey"
                 />
             <TextView
+                android:id="@+id/pasword"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

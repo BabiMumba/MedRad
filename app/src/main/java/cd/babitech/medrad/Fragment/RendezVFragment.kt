@@ -50,6 +50,11 @@ class RendezVFragment : Fragment() {
     }
 
     fun getdata(){
+        val firebaseAuth = FirebaseAuth.getInstance()
+        //get mail user
+        val mail = firebaseAuth.currentUser?.email.toString()
+        //id user le mail de l'utilisateur juste avant le @
+        val id_user = mail.substringBefore("@").toString()
         val liste_rendev_v = arrayListOf<rende_vous>()
         binding.progressItem.loaderFrameLayout.visibility = View.VISIBLE
         fstore = FirebaseFirestore.getInstance()
@@ -62,14 +67,12 @@ class RendezVFragment : Fragment() {
                 val liste_rendev = it.documents
                 for(i in liste_rendev) {
                     val model = i.toObject(rende_vous::class.java)!!
-                    if (model.id_user==DATA.id_user){
+                    if (model.id_user==id_user){
                         liste_rendev_v.add(model)
                     }
                     rendeAdapter = RendezAdapter(liste_rendev_v)
                     rendeAdapter.notifyDataSetChanged()
                 }
-                binding.mayRendevz.adapter = rendeAdapter
-
                // Void.toas(requireActivity(),"${liste_rendev_v.size}")
                 if (liste_rendev_v.size<=0){
                     Glide.with(this).asGif().load(R.raw.empty_cal).into(binding.emptyListe)
@@ -78,6 +81,8 @@ class RendezVFragment : Fragment() {
                 }else{
                     binding.progressItem.loaderFrameLayout.visibility = View.GONE
                 }
+                binding.mayRendevz.adapter = rendeAdapter
+                rendeAdapter.notifyDataSetChanged()
             }
         }
     }

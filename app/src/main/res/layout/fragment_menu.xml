@@ -115,6 +115,7 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:id="@+id/add_domaine"
                 android:background="@color/card_background"
@@ -145,6 +146,7 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:id="@+id/add_doctor_new"
                 android:background="@color/card_background"
