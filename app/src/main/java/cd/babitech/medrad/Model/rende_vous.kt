@@ -9,5 +9,6 @@ data class rende_vous(
     val nom_docteur:String= "",
     val domaine:String= "",
     val date_env:String= "",
+    val etat_rend:Boolean= false,
 
 )

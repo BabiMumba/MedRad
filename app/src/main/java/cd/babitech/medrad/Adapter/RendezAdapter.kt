@@ -25,6 +25,7 @@ class RendezAdapter(var userList: ArrayList<rende_vous>) : RecyclerView.Adapter<
         val domaine: TextView = itemView.findViewById(R.id.domaine_doctore)
         val nom: TextView = itemView.findViewById(R.id.name_doctor)
         val delete_btn: ImageView = itemView.findViewById(R.id.delete_btn)
+        val etat_view: View = itemView.findViewById(R.id.eta_rende)
 
     }
 
@@ -43,6 +44,11 @@ class RendezAdapter(var userList: ArrayList<rende_vous>) : RecyclerView.Adapter<
         holder.nom.text = currentUser!!.nom_docteur
         holder.date_rendev.text = currentUser!!.date_rendev
         holder.domaine.text = currentUser!!.domaine
+        if (!currentUser!!.etat_rend) {
+            holder.etat_view.setBackgroundResource(R.color.rouge)
+        } else {
+            holder.etat_view.setBackgroundResource(R.color.vert)
+        }
 
         Glide
             .with(holder.itemView.context)

@@ -11,7 +11,7 @@
         layout="@layout/layout_top_bar"
         />
     <androidx.core.widget.NestedScrollView
-        android:layout_above="@id/rendez_btn"
+        android:layout_above="@id/rend_layout"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -380,6 +380,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <RelativeLayout
+        android:id="@+id/rend_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

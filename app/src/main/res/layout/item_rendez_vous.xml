@@ -10,9 +10,10 @@
     app:cardCornerRadius="@dimen/_5sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <View
+        android:id="@+id/eta_rende"
         android:layout_width="@dimen/_5sdp"
         android:layout_height="@dimen/_100sdp"
-        android:background="@color/vert"
+        android:background="@color/rouge"
         />
 
     <RelativeLayout

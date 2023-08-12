@@ -156,7 +156,7 @@ class DetailDoctorActivity : AppCompatActivity() {
         val id = System.currentTimeMillis().toString()
 
         val mRef = firestore.collection(DATA.rendeVous).document(DATA.id_user+id)
-        val rendezvous = rende_vous(id,DATA.id_user,id_doctor,date,profil,nom,domaine,date_dins)
+        val rendezvous = rende_vous(id,DATA.id_user,id_doctor,date,profil,nom,domaine,date_dins,false)
         mRef.set(rendezvous)
             .addOnSuccessListener {
                 Void.loading(false,binding.progressBar,binding.rendezBtn)

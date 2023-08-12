@@ -11,6 +11,15 @@ class ThankActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityThankBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.toto.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+        val title = intent.getStringExtra("title")
+        val message = intent.getStringExtra("message")
+
+
+        binding.toto.titreTopBar.setText(title)
+        binding.txtThank.text = message
 
     }
 }

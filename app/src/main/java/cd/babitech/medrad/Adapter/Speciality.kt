@@ -1,5 +1,6 @@
 package cd.babitech.medrad.Adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import cd.babitech.medrad.Activity.FiltreActivity
 import cd.babitech.medrad.Model.specialite
 import cd.babitech.medrad.R
 import com.bumptech.glide.Glide
@@ -33,7 +35,12 @@ class Speciality(var userList: ArrayList<specialite?>) : RecyclerView.Adapter<Sp
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()
         holder.nameTextView.text = currentUser!!.domaine
-        // Utilisez votre bibliothèque de chargement d'images préférée pour charger l'image à partir du lien ici
+        holder.itemView.setOnClickListener {
+            //passer les données à l'activité suivante
+            val intent = Intent(holder.itemView.context, FiltreActivity::class.java)
+            intent.putExtra("type", currentUser.domaine)
+            holder.itemView.context.startActivity(intent)
+        }
 
         Glide
             .with(holder.itemView.context)

@@ -21,12 +21,12 @@
         android:id="@+id/txt_nofile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vous n'avez pas de notification"
+        android:text="Vos notifications s'afficherons ici"
         android:layout_below="@id/empty_liste"
         android:layout_centerHorizontal="true"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/_15ssp"
-        android:textStyle="italic"
+        android:textStyle="normal"
         />
 
 </RelativeLayout>

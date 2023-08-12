@@ -12,6 +12,7 @@ import android.window.SplashScreen
 import cd.babitech.medrad.Activity.AboutDeveloppeur
 import cd.babitech.medrad.Activity.AddSpecialityActivity
 import cd.babitech.medrad.Activity.SplashActivity
+import cd.babitech.medrad.Activity.ThankActivity
 import cd.babitech.medrad.Auth.doctor.RegisterDoctActivity
 import cd.babitech.medrad.R
 import cd.babitech.medrad.Unit.DATA
@@ -59,6 +60,23 @@ class MenuFragment : Fragment() {
         }
         binding.aboutMe.setOnClickListener {
             startActivity(Intent(requireActivity(),AboutDeveloppeur::class.java))
+        }
+        binding.aboutApp.setOnClickListener {
+            startActivity(Intent(requireActivity(),ThankActivity::class.java).also {
+                val message = resources.getString(R.string.aboute_app)
+                val titre = "A propos de l'application"
+                it.putExtra("message",message)
+                it.putExtra("title",titre)
+            })
+        }
+        binding.thankBtn.setOnClickListener {
+            startActivity(Intent(requireActivity(),ThankActivity::class.java).also {
+                //recuperer les texte depuis le ressource string
+                val message = resources.getString(R.string.thank)
+                val titre = "Remerciement"
+                it.putExtra("message",message)
+                it.putExtra("title",titre)
+            })
         }
 
         return binding.root

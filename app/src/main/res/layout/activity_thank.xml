@@ -4,21 +4,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/backgroud"
     android:layout_height="match_parent"
     tools:context=".Activity.ThankActivity">
-    <RelativeLayout
-        android:padding="@dimen/_5sdp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
-        <TextView
-            android:textColor="@color/primary_text"
-            android:fontFamily="@font/metropolis_m"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/aboute_app"
+        android:orientation="vertical">
+        <include
+            layout="@layout/layout_top_bar"
+            android:id="@+id/toto"
             />
+        <RelativeLayout
+            android:padding="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/txt_thank"
+                android:textColor="@color/primary_text"
+                android:fontFamily="serif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/thank"
+                />
 
-    </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
 
 </androidx.core.widget.NestedScrollView>
