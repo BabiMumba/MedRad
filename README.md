@@ -1,4 +1,4 @@
-
+![sol2](https://github.com/BabiMumba/MedRad/assets/104514894/481619fa-56b3-42ef-8943-3864c0cea8f5)
 # MedRad
 **MedRad** est une application mobile qui permet aux utilisateurs de prendre des rendez-vous avec des **Médecins**.
 cette application offre une solution numérique qui permet aux utilisateurs de prendre des rendez-vous à tout moment et de n'importe où, sans avoir à passer par des appels téléphoniques fastidieux ou attendre des heures dans une salle d'attente. **Cela contribue à améliorer l'accessibilité des soins de santé pour tous**.
@@ -47,5 +47,6 @@ cette application offre une solution numérique qui permet aux utilisateurs de p
 
 
 
+          babi mumba 2023 concours softday
 
 
