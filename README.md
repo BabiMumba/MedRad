@@ -47,7 +47,7 @@ cette application offre une solution numérique qui permet aux utilisateurs de p
 
 
 *par babi mumba
-20/07/2023 etudiant en Bac1 Genie Logiciel a (esisalama) UDBL Actuellement*
+20/07/2023 etudiant de Bac1 a (esisalama) UDBL Actuellement*
 *concours de softday organiser a la faculte*
 
 
