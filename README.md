@@ -46,7 +46,8 @@ cette application offre une solution numérique qui permet aux utilisateurs de p
 ![banne_pr](https://github.com/BabiMumba/MedRad/assets/104514894/9b01974f-4511-45a9-b995-e2e95bfb30c1)
 
 
-
-          babi mumba 2023 concours softday
+*par babi mumba
+20/07/2023 etudiant en Bac1 Genie Logiciel a (esisalama) UDBL Actuellement*
+*concours de softday organiser a la faculte*
 
 
